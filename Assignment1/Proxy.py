@@ -1,7 +1,5 @@
 import socket
 from threading import Thread
-from socketserver import ThreadingMixIn
-import requests
 import webbrowser
 import json
 
@@ -15,14 +13,8 @@ class ClientThread(Thread):
         Thread.__init__(self)
         self.ip = ip
         self.port= port
-        print ("Server Thread created ip ",ip)        
-        with open(filename,"r") as data_file:    
-            urls = json.load(data_file)
-        pprint(data)
-
-    # def sendRequest(self,url):
-    #     r = requests.get(url);
-    #     return r
+        print ("Server Thread created ip ",ip) 
+    
     def run(self):
         while(True):
             data = conn.recv(1024)
@@ -30,12 +22,21 @@ class ClientThread(Thread):
                 break
             # conn.sendall(requests.get('https://google.com'));
             url = data.decode("utf-8")
-            print(url+"\n")
-            webbrowser.get('chrome').open_new_tab(url)            
+            print("requested url: ", url)
+            if (ClientThread.URLFiltered(url, url_list)):
+                # conn.sendall('filtered !!')
+                print("filtered website")
+            else:
+                webbrowser.get('chrome').open_new_tab(url)
     
-    def checkURL(url):
-
-
+    def URLFiltered(url,url_list):
+        print("Entered here ")
+        for group in url_list.values():
+            for u in group:
+                print("list consits: ", u)
+                if(url == u):
+                    return True
+        return False
 
 
 # listen on a port to get target link
@@ -49,6 +50,10 @@ threads = []
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
 s.bind((TCP_HOST,TCP_PORT))
+ 
+with open(filename,"r") as data_file:    
+    url_list = json.load(data_file)
+
 while(True):
     s.listen(3)
     (conn, (ip,port)) = s.accept()

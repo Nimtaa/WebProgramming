@@ -1,8 +1,4 @@
 {  
-    "news":[
-        {"address":"http://www.facebook.com"}
-    ],
-    "sports":[
-        {"address":"http://www.varzesh3.com"}
-    ]
+    "news":["http://www.facebook.com", "http://www.bbc.co.uk"],
+    "sports":["http://www.facebook.com"]
 }
