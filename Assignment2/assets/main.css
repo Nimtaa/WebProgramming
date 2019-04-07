@@ -1,0 +1,16 @@
+@font-face{
+    font-family: Yekan;
+    src: url(../fonts/BYekan/BYekan+.ttf);
+}
+@font-face{
+    font-family: YekanBold;
+    src: url(../fonts/BYekan/BYekan+\ Bold.ttf);
+}
+.topnav{
+    direction: rtl;
+    font-family: Yekan;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 30px;
+    border-bottom: 2px solid;
+}
