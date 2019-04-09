@@ -9,8 +9,14 @@
 .topnav{
     direction: rtl;
     font-family: Yekan;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-right: 30px;
-    border-bottom: 2px solid;
+}
+.topnav a:link{
+    text-decoration: none;
+    color: #4a4a4a;
+}
+ .topnav a:hover{
+    color: purple;
+} 
+.topline {
+    border-style: solid;
 }
