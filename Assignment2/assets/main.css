@@ -6,17 +6,85 @@
     font-family: YekanBold;
     src: url(../fonts/BYekan/BYekan+\ Bold.ttf);
 }
+@font-face{
+    font-family: ShabnamBold;
+    src: url(../fonts/shabnam-font-v4.0.0/Shabnam-Bold.ttf);
+}
+@font-face{
+    font-family: ShabnamLight;
+    src: url(../fonts/shabnam-font-v4.0.0/Shabnam-Light.woff);
+}
+@font-face{
+    font-family: Shabnam;
+    src: url(../fonts/shabnam-font-v4.0.0/Shabnam.ttf);
+}
+
+
 .topnav{
     direction: rtl;
     font-family: Yekan;
+    padding-top: 0.6%;
+    padding-bottom: 1%;
+    padding-right: 9%;
 }
-.topnav a:link{
+.topnav_word{
+    display: inline-block;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: auto;
+    padding-left: 0.2%;
+    padding-right: 0.2%;
     text-decoration: none;
     color: #4a4a4a;
+    -webkit-transition: border-color .3s;
+    -o-transition: border-color .3s;
+    transition: border-color .3s;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
- .topnav a:hover{
-    color: purple;
+ .topnav a:hover {
+    color: #d40062
 } 
 .topline {
+    border-image: linear-gradient(270deg,#8b00af,#d40062,#ff0613) 1;
+    border-image-source: linear-gradient(270deg, rgb(139, 0, 175), rgb(212, 0, 98), rgb(255, 6, 19));
+    border-image-slice: 1;
+    border-image-width: 1;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-width: 0 0 4.8px;
+    border-width: 0 0 .3rem;
     border-style: solid;
 }
+.pipe {
+    display: inline-block;
+    height: 20px;
+    width: 2px;
+    background-color: #cbcbcb;
+    vertical-align: middle;
+    margin: auto 0;
+}
+
+.main_banner {
+    background-image: url("../mocks/Pizza2.jpg");
+    background-size: 563px;
+    height: 528px;
+    background-repeat: no-repeat;
+}
+.banner_text{
+    text-align: center;
+    font-family: ShabnamBold;   
+    font-size: 2rem;
+    padding-top: 195px;
+    padding-left: 20px;
+}
+.banner_text p{
+    font-family: Shabnam;
+    color: #9c9c9c;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+/* .logo_main {
+    text-align: center;
+} */
