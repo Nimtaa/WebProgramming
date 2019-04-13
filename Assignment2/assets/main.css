@@ -77,7 +77,8 @@
     font-family: ShabnamBold;   
     font-size: 2rem;
     padding-top: 195px;
-    padding-left: 20px;
+    /* padding-left: 20px; */
+    margin-left: 20px;
 }
 .banner_text p{
     font-family: Shabnam;
@@ -88,3 +89,41 @@
 /* .logo_main {
     text-align: center;
 } */
+
+.main_search_box {
+    border-width: 1px;
+    width: 750px;
+    height: 62px;
+    background-color: #fff;
+    text-align: center;
+    margin-left: 272px;
+    box-shadow: -3px 3px 9px -5px;
+    border-radius: 8px;
+    perspective: 1px;
+    overflow: hidden;
+}
+.city_select {
+    border: 1px solid #e2e2e2;
+    border-top-color: rgb(226, 226, 226);
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-right-color: rgb(226, 226, 226);
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-bottom-color: rgb(226, 226, 226);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left-color: rgb(226, 226, 226);
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    border-radius: .7rem;
+    border-top-left-radius: 0.7rem;
+    border-top-right-radius: 0.7rem;
+    border-bottom-right-radius: 0.7rem;
+    border-bottom-left-radius: 0.7rem;
+}
