@@ -22,6 +22,7 @@
 .body,html{
     margin: 0;
     height: 100%;
+    background-color: rgb(250,250,250);
 }
 .topnav{
     direction: rtl;
@@ -73,8 +74,17 @@
     background-image: url("../mocks/Pizza2.jpg");
     background-size: 563px;
     height: 528px;
-    background-repeat: no-repeat;   
+    background-repeat: no-repeat;
+    background-color: white;   
     
+}
+.banner_logo{
+    position: absolute;
+    top:20%;
+    left: 45%;
+}
+.banner_logo img{
+    height: 50px;
 }
 .banner_text{
     text-align: center;
@@ -217,19 +227,22 @@
 .section2{
     /* background-color:  #cac6c6; */
     background-color: #efefef;
+
 }
 
 .guide_card_section{
     float: right;
     margin-left: 40px;
     margin-right: 80px;
+    background-color: rgb(250,250,250);
 }
     /* direction: rtl; */
 .guide_card_caption{
-    font-family: Yekan;
+    font-family: Shabnam;
     direction: rtl;
     color: #9c9c9c;
     text-align: right;
+    font-weight: 500;
     /* float: right; */
     /* font-size: 0.6em; */
 }
@@ -246,10 +259,29 @@
     box-shadow: -3px 3px 9px -5px;
     border-radius: 3px;
     perspective: 1px;
-    overflow: hidden;
+    display: inline-block;
+    /* overflow: hidden; */
+}
+.guide_card_div_img{
+    float: right;
+    width: 50px;
+    margin-right: 10px;
+    margin-top: 25px;
+
+
+}
+.guide_card_div_text{
+    margin-top: 32px;
+    font-size: 11px;
+}
+
+
+.section3{
+    background-color: rgb(250,250,250);
 }
 .section3_intro{
     text-align: center;
+    background-color: rgb(250,250,250);
     font-family: ShabnamBold;
     margin-top: 300px;
     margin-bottom: 20px;
@@ -257,24 +289,43 @@
 }
 .top_restaurant_section{
     float: right;
-    margin-left: 40px;
+    margin-left: 20px;
     margin-right: 80px;
+    /* margin-bottom: 100px; */
+    
 }
 .top_restaurant_div{
+    /* margin-bottom: 100px; */
     font-family: Shabnam;
+    text-align: center;
     float: right;
     border-width: 1px;
     font-size: 0.8em;
-    height: 250px;
-    width: 315px;
+    height: 320px;
+    width: 320px;
     background-color: #fff;
     text-align: center;
     box-shadow: -3px 3px 9px -5px;
     border-radius: 3px;
     perspective: 1px;
     overflow: hidden;
+    transition: box-shadow 0.3s;
+    box-shadow:0px 0px 5px 0px #cfcfcf85;
+}
+.top_restaurant_div:hover{
+    box-shadow:0px 0px 20px 0px #cfcfcf85;
+}
+.top_restaurant_div p{
+    color:rgb(150, 150, 150);
+}
+.top_restaurant_logo{
+    margin-top: 25px;
+    border: 2px;
+    box-shadow:0px 0px 20px 0px #cfcfcf85;
+
 }
 .good_restaurant{
+    /* margin-top: 200px; */
     background-image: url("../mocks/pizza_restaurantes.png");
     background-size: cover;
     background-size: 750px;
@@ -284,7 +335,8 @@
     background-color: #efefef;
 }   
 .section4{
-    margin-top: 300px;
+    margin-top: 450px;
+    background-color: #efefef;
 }
 
 .test{
@@ -295,11 +347,12 @@
 .grid_container{
     float: right;
     display: grid;
+    font-size: 0.8em;
     grid-template-columns: repeat(4, 80px);
     grid-template-rows: repeat(3, 80px);
-    grid-gap: 60px;
+    grid-gap: 65px;
     margin-right: 100px;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .grid_container__item{
@@ -314,13 +367,13 @@
 .grid_container__item:hover{
     box-shadow:0px 0px 20px 0px #8f8d8d85;
 }
-
+/* 
 .grid_container__img {
     width: 80px;
     height: 80px;
     object-fit: cover;
     
-}
+} */
 #btn{
     border: .02rem solid #cbcbcb!important;
     border-radius: 3px;
@@ -329,10 +382,243 @@
 }
  
  .section4_caption{
-     /* direction: rtl; */
-    float: right;
-     margin-right: 100px;
-     margin-top: 50px;
-     font-family: Shabnam;
+    text-align: right;
+    margin-right: 100px;
+    margin-top: 50px;
+    font-family: Shabnam;
  }
 
+
+.section5{
+    background-color: rgb(246,249,252);
+}
+.section5_intro{
+    text-align: center;
+    font-family: ShabnamBold;   
+    font-size: 2rem;
+    
+    margin-bottom: 0px;
+    border-top-width: 5px;
+    padding-top: 24px;
+
+}
+.section5_intro_h4{
+    margin-bottom: 0px;
+}
+.section5_intro_p{
+    margin-bottom: 0px;
+    font-family: Shabnam;
+    font-size: 0.7em;
+    margin-top: 5px;
+}
+
+.section5_grid_container{
+    background-color: rgb(246,249,252);
+    float: right;
+    display: grid;
+    grid-template-columns: repeat(4, 250px);
+    grid-template-rows: repeat(1, 300px);
+    grid-gap: 20px;
+    margin-right: 120px;
+    margin-top: 50px;
+}
+
+
+.section5_grid_container__item{
+    /* background-size: cover; */
+    transition: box-shadow 0.3s;
+    background-color: rgb(246,249,252);
+    border-width: 0.5px;
+    font-size: 0.8em;
+    box-shadow: -3px 3px 9px -5px; 
+    border-radius: 3px;
+    perspective: 1px;
+}
+#sec5_input_id{
+   width: 250px; 
+   height:  300px;
+}
+
+
+
+.section5_text{
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    direction: rtl;
+    font-family: Shabnam;
+    color: white;
+}
+.section5_text h1{
+    margin-bottom: 0px;
+}
+.input_item_1{
+    background: url("../mocks/kebab_1525012065.jpeg");
+    width: 250px; 
+    height:  300px;
+    border: none;
+    cursor: pointer;
+}
+.input_item_2{
+    background: url("../mocks/hamburger_1539779150.jpeg");
+    width: 250px; 
+    height:  300px;
+    border: none;
+    cursor: pointer;
+    background-blend-mode: darken;
+}
+.input_item_3{
+    background: url("../mocks/pizza_1539780235.jpeg");
+    width: 250px; 
+    height:  300px;
+    border: none;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    
+}
+.input_item_4{
+    background: url("../mocks/sandwich_1539782856.jpeg");
+    width: 250px; 
+    height:  300px;
+    border: none;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.section5_grid_container__item:hover{
+    
+    box-shadow:0px 0px 10px 0px #8f8d8d85;  
+}
+ 
+.section5_text_bottom{
+    text-align: center;
+    font-family: Shabnam;
+    margin-top: 400px;
+    margin-bottom: 20px;
+    font-size: 1.4em;
+}
+
+.more_foods{
+    margin-left: 240px;
+    margin-right:240px;
+    text-align: center;
+    line-height: 70px;
+}
+.more_food_link{
+    text-decoration: none;
+    color: black;
+    font-family: Shabnam;
+    /* height: 47rem; */
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 47px;
+    border-radius: 25px;
+    padding:  12px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: #fff;
+    font-size: 1.1em;
+    font-weight: 650;
+    text-align: center;
+    line-height: 3.5px;
+    margin-left: 1.2px;
+    margin-bottom: 2.5px;
+    cursor: pointer;
+    -webkit-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}
+.more_food_link:hover{
+    box-shadow:0px 0px 20px 0px #8f8d8d85;   
+}
+.bottom_description{
+    font-family: Shabnam;
+    direction: rtl;
+    float: right;
+
+    background-color: rgb(32,32,32);
+}
+.bottom_description a{
+    text-decoration: none;
+    color: rgb(79,133,255);
+
+}
+.bottom_description p{
+    color: rgb(155,155,155);
+}
+.bottom_sections{
+    float: left;
+    
+}
+.download_links{
+    direction: rtl;
+    display: inline-block;
+    margin-left: 20px;
+    margin-right: 20px;
+    
+}
+.reyhoon_support{
+    direction: rtl;
+    display: inline-block;
+    margin-left: 20px;
+    margin-right: 20px;
+    
+}
+.restaurants{
+    display: inline-block;
+    direction: rtl;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.contact{
+    display: inline-block;
+    direction: rtl;
+    margin-left: 20px;
+    margin-right: 20px; 
+}
+.checked{
+    color: orange;
+}
+.halfchecked{
+    color: orange;
+}
+.unchecked{
+    /* color: rgb(203,203,203); */
+    color: orange;
+}
+#good_p{
+    padding-top: 40px;
+}
+.top_restaurant_button{
+    color: rgb(212,2,99);
+    margin-top:10px;
+    background-color: white;
+    font-size: 1.1em;
+    font-family: Shabnam;
+    border-radius: 23px;
+    height: 31px;
+    width: 133px;
+    padding-top: 5;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 0px;
+    padding-right: 0px;
+    border-left-width: 1px;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    text-align: center;
+    border: 1px solid;
+    transition: 0.3s;
+
+}
+.top_restaurant_button:hover{
+    background-color: rgb(241, 226, 232);
+}
+.orange_rating{
+    color:rgb(249,185,43);
+    font-weight: 700;
+}
