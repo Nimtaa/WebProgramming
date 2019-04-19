@@ -19,7 +19,10 @@
     src: url(../fonts/shabnam-font-v4.0.0/Shabnam.ttf);
 }
 
-
+.body,html{
+    margin: 0;
+    height: 100%;
+}
 .topnav{
     direction: rtl;
     font-family: Yekan;
@@ -70,7 +73,8 @@
     background-image: url("../mocks/Pizza2.jpg");
     background-size: 563px;
     height: 528px;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;   
+    
 }
 .banner_text{
     text-align: center;
@@ -93,7 +97,7 @@
 .main_search_box {
     border-width: 1px;
     width: 750px;
-    height: 62px;
+    height: 71px;
     background-color: #fff;
     text-align: center;
     margin-left: 272px;
@@ -101,9 +105,20 @@
     border-radius: 8px;
     perspective: 1px;
     overflow: hidden;
+    direction: rtl;
 }
 .city_select {
+    float :right;
+    width: 150px;
+    height: 48px;
+    padding-top: 3px;
+    padding-bottom: 2px;
+    margin-bottom: 6px;
+    margin-top: 7px;
+    margin-right: 8px;
+    margin-left: 5px;
     border: 1px solid #e2e2e2;
+    border-right-width: 1px;
     border-top-color: rgb(226, 226, 226);
     border-top-style: solid;
     border-top-width: 1px;
@@ -127,3 +142,197 @@
     border-bottom-right-radius: 0.7rem;
     border-bottom-left-radius: 0.7rem;
 }
+.city_select_element{
+    font-family: Shabnam;
+    font-size: 0.6em;
+    border: none;
+    
+}
+.neighbor_input_element{
+    font-family: Shabnam;
+    border: none;
+    direction: rtl;
+    font-size: 0.51em;
+    float: right;
+    margin-top: 12px;
+    margin-right: 10px;
+    width: 400px;
+    color: #b7b7b7;
+}
+.neighbor_input{
+    float: right;
+    width: 572px;
+    height: 48px;
+
+    padding-top: 3px;
+    padding-bottom: 2px;
+    margin-bottom: 6px;
+    margin-top: 7px;
+
+    border: 1px solid #e2e2e2;
+    border-right-width: 1px;
+    border-top-color: rgb(226, 226, 226);
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-right-color: rgb(226, 226, 226);
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-bottom-color: rgb(226, 226, 226);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left-color: rgb(226, 226, 226);
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    border-radius: .7rem;
+    border-top-left-radius: 0.7rem;
+    border-top-right-radius: 0.7rem;
+    border-bottom-right-radius: 0.7rem;
+    border-bottom-left-radius: 0.7rem;
+}
+.neighbor_input:focus{
+    border: none;
+}
+.neighbor_input_caption{
+    font-family: Shabnam;
+    font-size: 0.3em;
+    float: right;
+}
+
+#pin_icon{
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+    float: right;
+    margin-top: 12px;
+    margin-right: 10px;
+    filter: brightness(172%);
+
+}
+
+.section2{
+    /* background-color:  #cac6c6; */
+    background-color: #efefef;
+}
+
+.guide_card_section{
+    float: right;
+    margin-left: 40px;
+    margin-right: 80px;
+}
+    /* direction: rtl; */
+.guide_card_caption{
+    font-family: Yekan;
+    direction: rtl;
+    color: #9c9c9c;
+    text-align: right;
+    /* float: right; */
+    /* font-size: 0.6em; */
+}
+.guide_card_div{
+    font-family: Shabnam;
+    float: right;
+    color: #9c9c9c;
+    border-width: 1px;
+    font-size: 0.8em;
+    height: 110px;
+    width: 310px;
+    background-color: #fff;
+    text-align: center;
+    box-shadow: -3px 3px 9px -5px;
+    border-radius: 3px;
+    perspective: 1px;
+    overflow: hidden;
+}
+.section3_intro{
+    text-align: center;
+    font-family: ShabnamBold;
+    margin-top: 300px;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+.top_restaurant_section{
+    float: right;
+    margin-left: 40px;
+    margin-right: 80px;
+}
+.top_restaurant_div{
+    font-family: Shabnam;
+    float: right;
+    border-width: 1px;
+    font-size: 0.8em;
+    height: 250px;
+    width: 315px;
+    background-color: #fff;
+    text-align: center;
+    box-shadow: -3px 3px 9px -5px;
+    border-radius: 3px;
+    perspective: 1px;
+    overflow: hidden;
+}
+.good_restaurant{
+    background-image: url("../mocks/pizza_restaurantes.png");
+    background-size: cover;
+    background-size: 750px;
+    height: 700px;
+    background-repeat: no-repeat;
+    /* margin-top: 300px; */
+    background-color: #efefef;
+}   
+.section4{
+    margin-top: 300px;
+}
+
+.test{
+    width: 81px;
+    height: 81px;
+
+}
+.grid_container{
+    float: right;
+    display: grid;
+    grid-template-columns: repeat(4, 80px);
+    grid-template-rows: repeat(3, 80px);
+    grid-gap: 60px;
+    margin-right: 100px;
+    margin-top: 100px;
+}
+
+.grid_container__item{
+    text-align: center;
+    font-family: Shabnam;
+    /* color: rgb(88, 81, 81); */
+    background-image: url("../mocks/bakground-section4.PNG");
+    background-size: cover;
+    transition: box-shadow 0.3s;
+   
+}
+.grid_container__item:hover{
+    box-shadow:0px 0px 20px 0px #8f8d8d85;
+}
+
+.grid_container__img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    
+}
+#btn{
+    border: .02rem solid #cbcbcb!important;
+    border-radius: 3px;
+    perspective: 1px;
+
+}
+ 
+ .section4_caption{
+     /* direction: rtl; */
+    float: right;
+     margin-right: 100px;
+     margin-top: 50px;
+     font-family: Shabnam;
+ }
+
