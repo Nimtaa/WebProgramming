@@ -74,7 +74,7 @@ function RenderStars(rate){
 function RenderGoodRestaurants(data){
     var index = 3;
     $(".grid_container").children().each(function(){
-        $(this).children(".section5_text").attr('src',data['restaurants'][index].imgUrl);
+        $(this).children('input').attr('src',data['restaurants'][index].imgUrl);
         $(this).children('input').after(data['restaurants'][index].name);
         index++;
 

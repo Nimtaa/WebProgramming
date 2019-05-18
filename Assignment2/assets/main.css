@@ -454,14 +454,14 @@
     margin-bottom: 0px;
 }
 .input_item_1{
-    background: url("../mocks/kebab_1525012065.jpeg");
+    /* background: url("../mocks/kebab_1525012065.jpeg"); */
     width: 250px; 
     height:  300px;
     border: none;
     cursor: pointer;
 }
 .input_item_2{
-    background: url("../mocks/hamburger_1539779150.jpeg");
+    /* background: url("../mocks/hamburger_1539779150.jpeg"); */
     width: 250px; 
     height:  300px;
     border: none;
@@ -469,7 +469,7 @@
     background-blend-mode: darken;
 }
 .input_item_3{
-    background: url("../mocks/pizza_1539780235.jpeg");
+    /* background: url("../mocks/pizza_1539780235.jpeg"); */
     width: 250px; 
     height:  300px;
     border: none;
@@ -480,7 +480,7 @@
     
 }
 .input_item_4{
-    background: url("../mocks/sandwich_1539782856.jpeg");
+    /* background: url("../mocks/sandwich_1539782856.jpeg"); */
     width: 250px; 
     height:  300px;
     border: none;
