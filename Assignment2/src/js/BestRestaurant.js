@@ -3,6 +3,7 @@
 $.getJSON('http://demo2469824.mockable.io/best-restaurants', function(data) {
     //data is the JSON string
     RenderBestinMonth(data);
+    RenderGoodRestaurants(data);
 });
 
 function RenderBestinMonth(data){
@@ -14,10 +15,37 @@ function RenderBestinMonth(data){
        $( this ).children('.orange_rating').html("&nbsp;"+data['restaurants'][index].rate);
        $( this ).children('#top_restaurant_address').html(data['restaurants'][index].address);
        $( this ).children('.orange_rating').before(RenderStars(data['restaurants'][index].rate));
+       $( this ).children('#top_restaurant_food').html(RenderFoods(data['restaurants'][index].foods));
+
        index ++;
     })
 }
 
+function RenderFoods(listOfFood){
+    var persianList = new Array();
+    for(let i = 0; i < listOfFood.length; i++){
+        switch(listOfFood[i]){
+            case "pizza":
+                persianList.push("پیتزا");
+                persianList.push("&bull;");
+                break;
+            case "fastfood":
+                persianList.push("قست‌فود");
+                persianList.push("&bull;");
+                break;
+            case "sandwich":
+                persianList.push("ساندویج");
+                persianList.push("&bull;");
+                break;
+            case "burger":
+                persianList.push("برگر");
+                persianList.push("&bull;");
+                break;
+        }
+    }
+    persianList.pop();
+    return persianList;
+}
 
 function RenderStars(rate){
     var stars = new Array();
@@ -40,4 +68,18 @@ function RenderStars(rate){
 
     return stars;
     
+}
+
+
+function RenderGoodRestaurants(data){
+    var index = 3;
+    $(".grid_container").children().each(function(){
+        $(this).children(".section5_text").attr('src',data['restaurants'][index].imgUrl);
+        $(this).children('input').after(data['restaurants'][index].name);
+        index++;
+
+    });
+    
+    
+
 }

@@ -316,6 +316,8 @@
     color:rgb(150, 150, 150);
 }
 .top_restaurant_logo{
+    width: 84px;
+    height: 84px;
     margin-top: 25px;
     border: 2px;
     box-shadow:0px 0px 20px 0px #cfcfcf85;
@@ -375,6 +377,8 @@
     border: .02rem solid #cbcbcb!important;
     border-radius: 3px;
     perspective: 1px;
+    width : 80px;
+    height: 80px;
 
 }
  
