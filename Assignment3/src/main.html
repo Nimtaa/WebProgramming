@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../assets/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/global.css">
+    <script  type="text/javascript" src="../src/js/jquery-3.4.1.min.js"></script>
+    <script type = "text/javascript" src = "../src/js/BestRestaurant.js" ></script>
+    <script type = "text/javascript" src = "../src/js/FoodList.js" ></script>
+    <title>سفارش غذا از بهترین رستوران‌ها و فست‌فود‌ها</title>
+</head>
+<body>
+
+    <div class="topnav">
+        <a class="topnav_word" href="./login.html">ورود</a>
+        <span class="pipe"></span>
+        <a class="topnav_word" href="./register.html">عضویت</a>
+        &emsp;
+        <a class="topnav_word" href="#help">راهنما</a>
+    </div>
+    <div class="topline"></div> 
+    <div class="main_banner">
+            <div class="banner_logo">
+                    <img  src="../mocks/logo.png">
+                </div>
+        <div class="banner_text">
+            <h>سفارش آنلاین غذا
+            از بهترین رستوران‌ها و فست‌فود‌‌ها</h>            
+            <p>.برای دیدن لیست رستوران‌ها و فست‌فود‌هایی که به شما سرویس می‌دهند، منطقه خود را وارد کنید</p>
+            <div class="main_search_box">
+                <span class="city_select">
+                    <select class="city_select_element">
+                        <option value="تهران">تهران</option>
+                        <option value="ساری">ساری</option>
+                        <option value="مشهد">مشهد</option>
+                        <option value="کرج">کرج</option>
+                      </select>
+                </span>
+                <span class="neighbor_input">
+                    <!-- <span class="neighbor_input_caption">
+                        منطقه خود را وارد کنید
+                    </span> -->
+                    <span>
+                        <img  id="pin_icon" src="../mocks/pin.png">
+                    </span>
+                    <input class="neighbor_input_element" type="text" name="neighbour_input" value="مثلا نیاوران">
+                </span>
+
+            </div>
+        </div>
+    </div>
+    <div class="section2">
+        <section class="guide_card_section">
+            <div class="guide_card_caption">
+                    <p>شهر و منطقه خود را وارد کنید</p>
+            </div>
+            <div class="guide_card_div">
+                <div>
+                    <img class="guide_card_div_img" src="../mocks/guide1.png" >
+                </div>
+                <div class="guide_card_div_text">
+                        منوی مورد علاقه خود را از بین بیش از 4000 رستوران خوب در تهران و شهرستان‌ها جستجو کنید
+                </div>
+                
+            </div>
+        </section>
+        <section class="guide_card_section">
+                <div class="guide_card_caption">
+                        <p>غذای خود را انتخاب کنید</p>
+                </div>    
+                <div class="guide_card_div">
+                    <div>
+                        <img class="guide_card_div_img" src="../mocks/guide2.png" >
+                    </div>
+                    <div class="guide_card_div_text">
+                        غذایی که می‌خواهید را انتخاب کنید و بدون هزینه اضافی سفارش خود را ثبت کنید
+                    </div>
+                </div>
+            </section>
+        <section class="guide_card_section">
+            <div class="guide_card_caption">
+                    <p>غذایتان را نوش‌جان کنید</p>
+                </div>      
+                    
+            <div class="guide_card_div">
+                <div>
+                    <img class="guide_card_div_img" src="../mocks/guide3.png">
+                </div>
+                <div class="guide_card_div_text">
+                    درب منزل یا حضوری از خود رستوران سفارشتان را
+                 تحویل بگیرید
+                </div>
+                    
+                    
+                </div>
+            </section>
+    </div>
+    <div class="section3">
+        <div class="section3_intro">
+                رستوران‌‌ها و فست فود‌های برتر ماه بر اساس امتیاز‌دهی کاربران
+        </div>
+        <section class="top_restaurant_section">
+                <div class="top_restaurant_div">
+                        <!-- <img class="top_restaurant_logo" src="https://dist.reyhoon-static.com/uploads/images/restaurants/logos/pizza-hot_15_1536498282.jpeg@!branch_logo_web_default"> -->
+                        <img class="top_restaurant_logo" >
+                    <h2>
+                    </h2>         
+                    <span id="top_restaurant_rateSpan"></span>
+                    <!-- <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked "></span>
+                    <span class="fa fa-star-half-full halfchecked"></span>
+                    <span class="fa fa-star-o unchecked"></span>           -->
+                    <span class="orange_rating"></span>
+                    <p id="top_restaurant_food"></p>
+                    <p id="top_restaurant_address"></p>
+                    <button class="top_restaurant_button">شروع سفارش</button>
+
+                </div>
+            </section>
+            <section class="top_restaurant_section">
+                    <div class="top_restaurant_div">
+                        <img  class="top_restaurant_logo" src= "https://dist.reyhoon-static.com/uploads/images/restaurants/logos/shila_8_1540375602.jpeg@!branch_logo_web_default">
+                        <h2>
+                        </h2>
+                        <span id="top_restaurant_rateSpan"></span>
+                        <!-- <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked "></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star-o unchecked"></span>      -->
+                        <span class="orange_rating"></span>
+                        <p id="top_restaurant_food"></p>
+                        <p id="top_restaurant_address"></p>
+                        <button class="top_restaurant_button">شروع سفارش</button>
+                    </div>
+                </section>
+            <section class="top_restaurant_section">
+                <div class="top_restaurant_div">
+                    <img class="top_restaurant_logo" src="https://dist.reyhoon-static.com/uploads/images/restaurants/logos/baguette_5494_1536561462.jpeg@!branch_logo_web_default" >
+                      <h2>
+                          
+                      </h2>
+                      <span id="top_restaurant_rateSpan"></span>
+                      <!-- <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked "></span>
+                      <span class="fa fa-star checked"></span>    
+                      <span class="fa fa-star-o unchecked"></span>  -->
+                      <span class="orange_rating"></span>       
+                      <p id="top_restaurant_food"></p>
+                      <p id="top_restaurant_address"></p>
+                      <button class="top_restaurant_button">شروع سفارش</button>
+                    </div>
+                </section>
+    </div>
+    <div class="section4">
+        <div class="good_restaurant">
+            <div class="section4_caption">
+                   <h3 id="good_p"> رستوران‌های خوب تهران در ریحون</h3>
+            </div>        
+            
+            <div class="grid_container">
+                <div class="grid_container__item grid_container__item--1">
+                    <!-- <button id="btn" class="grid_container__img" ></button> -->
+                    <input type="image" id="btn" />
+                </div>
+                <div class="grid_container__item grid_container__item--2">
+                    <!-- <button id="btn" class="grid_container__img" ></button> -->
+                    <input  type="image" id="btn"/>
+                </div>
+                <div class="grid_container__item grid_container__item--3">
+                    <!-- <button id="btn" class="grid_container__img" ></button> -->
+                    <input type="image" id="btn"/>
+                </div>
+                <div class="grid_container__item grid_container__item--4">
+                    <!-- <button id="btn" class="grid_container__img" ></button> -->
+                    <input type="image" id="btn" />
+                </div>
+                <div class="grid_container__item grid_container__item--5">
+                        <!-- <button id="btn" class="grid_container__img" ></button> -->
+                        <input type="image" id="btn" />
+                </div>
+                <div class="grid_container__item grid_container__item--6">
+                    <!-- <button id="btn" class="grid_container__img" ></button> -->
+                    <input type="image" id="btn"/>
+                </div>
+                <div class="grid_container__item grid_container__item--7">
+                    <!-- <button id="btn" class="grid_container__img" ></button> -->
+                    <input type="image" id="btn"/>
+                </div>
+                <div class="grid_container__item grid_container__item--8">
+                    <!-- <button id="btn" class="grid_container__img" ></button> -->
+                    <input type="image" id="btn"/>
+                </div>
+                <div class="grid_container__item grid_container__item--9">
+                    <!-- <button id="btn" class="grid_container__img" ></button> -->
+                    <input type="image" id="btn"/>
+                </div>
+                <div class="grid_container__item grid_container__item--10">
+                        <!-- <button id="btn" class="grid_container__img" ></button> -->
+                        <input type="image" id="btn"/>
+                </div>
+                <div class="grid_container__item grid_container__item--11">
+                    <!-- <button id="btn" class="grid_container__img" ></button> -->
+                    <input type="image" id="btn"/>
+                </div>
+                <div class="grid_container__item grid_container__item--12">
+                    <!-- <button id="btn" class="grid_container__img" ></button> -->
+                    <input type="image" id="btn"/>
+                    <!-- تومو -->
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="section5">
+        <div class="section5_intro">
+            <h4 class="section5_intro_h4">غذا چی میل دارید؟</h4>
+            <p class="section5_intro_p">صبحانه، ناهار، شام یا هر چیزی که میل دارید را انتخاب کنید</p>
+        </div>
+        <div class="section5_grid_container">
+            <div class="section5_grid_container__item section5_grid_container__item--1">
+                    <div class="section5_text">
+                            <h1>غذای پلویی</h1>
+                            <p>1691 رستوران فعال</p>
+                        </div>    
+                        <input id="sec5_input" type="submit" name="" value="" class="input_item_1"/> 
+            </div>
+            <div class="section5_grid_container__item section5_grid_container__item--2">
+                <div class="section5_text">
+                    <h1>برگر</h1>
+                    <p>2108 رستوران فعال</p>
+                </div>    
+                    <input id="sec5_input" type="submit" name="" value="" class="input_item_2"/> 
+            </div>
+            <div class="section5_grid_container__item section5_grid_container__item--3">
+                <div class="section5_text">
+                    <h1>پیتزا</h1>
+                    <p>2142 رستوران فعال</p>
+                </div>    
+                    <input id="sec5_input" type="submit" name="" value="" class="input_item_3"/> 
+            </div>
+            <div class="section5_grid_container__item section5_grid_container__item--4">
+                <div class="section5_text">
+                    <h1>ساندویچ</h1>
+                    <p>2398 رستوران فعال</p>
+                </div>
+                    <input id="sec5_input" type="submit" name="" value="" class="input_item_4"/> 
+            </div>
+    </div>
+        <div class="section5_text_bottom">
+         انتخاب غذا‌های بیشتر
+        </div>
+        <div class="more_foods">
+            <a href="" class="more_food_link"></a>
+            <a href="" class="more_food_link"></a>
+            <a href="" class="more_food_link"></a>
+            <a href="" class="more_food_link"></a>
+            <a href="" class="more_food_link"></a>
+            <a href="" class="more_food_link"></a>
+            <a href="" class="more_food_link"></a>
+            <a href="" class="more_food_link"></a>
+            <a href="" class="more_food_link"></a>
+            <a href="" class="more_food_link"></a>
+            <a href="" class="more_food_link"></a>
+            <a href="" class="more_food_link"></a>
+          
+            <a href="" class="more_food_link">بشقاب</a>
+            <!-- <a href="" class="more_food_link">استیک</a> -->
+            <!-- <a href="" class="more_food_link">ماهی</a> -->
+            <a href="" class="more_food_link">چلو کباب</a>
+        </div>
+    </div>
+    <footer class="footer">
+            <div class="footer_description">
+                <span class="gray-text">
+                        مراقبت و محافظت از حساب کاربری و رمزعبور هر کاربر بر عهده کاربر است. ریحون سریعترین راه سفارش آنلاین غذا است. منوی عکس‌دار رستوران‌های اطرافتان را بر اساس مکان خود به راحتی مشاهده کنید و سفارش دهید
+                        <a href="">لیست رستوران‌ها</a>
+                </span>
+               
+            </div>
+            <div class="footer_bottom_nav">
+                <hr size="5px" class="bottom_nav_line purple_line">
+                <span class="white-text">تماس با ریحون</span>
+                <a class="gray-text">درباره ریحون</a>
+                <a class="gray-text">تماس با ما</a>
+                <a class="gray-text">وبلاگ ریحون</a>
+            </div>
+            <div class="footer_bottom_nav">
+                <hr size="5px" class="bottom_nav_line purple_line">
+                <span class="white-text">رستوران‌ها</span>
+                <a class="gray-text">ثبت رستوران</a>
+            </div>
+            <div class="footer_bottom_nav">
+                <hr size="5px" class="bottom_nav_line red_line">
+                <span class="white-text">پشتیبانی ریحون</span>
+                <a class="gray-text">سوالات متداول</a>
+                <a class="gray-text">تماس با پشیبانی</a>
+                <a class="gray-text">قوانین و مقررات</a>
+            </div>
+            <div class="footer_bottom_nav">
+                <hr size="5px" class="bottom_nav_line yellow_line">
+                <span class="white-text">اپلیکیشن‌های موبایل</span>
+                <img src="../mocks/mobile.PNG" alt="">
+            </div>
+            <div class="credit_sign">
+                    <img src="../mocks/nanad.PNG" alt="">
+            </div>
+        </footer>
+       
+
+
+</body>
+</html>
