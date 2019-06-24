@@ -1,11 +1,64 @@
-
-
 const Restaurant = require('../models/restaurant');
 const Address = require('../models/address');
 const Comment = require('../models/comments');
 const Food = require('../models/food');
 const Category = require('../models/category');
 
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/nimhoon";
+
+exports.list = function(req,res,next){
+    if(req.query.category){
+        MongoClient.connect(url,  {useNewUrlParser: true},function(err, db) {
+            if (err) throw err;
+            var query = { 'area': req.query.area };
+            
+            const dbo = db.db('nimhoon');
+            Address.find(query, function(err, docs) {
+                // Map the docs into an array of just the _ids
+                var addressOfRestaurant_id = docs.map(function(doc) { return doc._id; });
+                Restaurant.find({'address': addressOfRestaurant_id,  
+            }, function(err, docs) {
+                    if(err) throw err;
+                    console.log(docs);
+                    db.close();
+                });
+            });
+            
+        });
+    }
+    else{
+        console.log("request query: "+ req.query.area);
+        MongoClient.connect(url,  {useNewUrlParser: true},function(err, db) {
+            if (err) throw err;
+            var query = { 'area': req.query.area };
+            const dbo = db.db('nimhoon');
+            Address.find(query, function(err, docs) {
+                // Map the docs into an array of just the _ids
+                var addressOfRestaurant_id = docs.map(function(doc) { return doc._id; });
+                Restaurant.find({'address': addressOfRestaurant_id}, function(err, docs) {
+                    if(err) throw err;
+                    console.log(docs);
+                    db.close();
+                });
+            });
+            
+        });
+    }
+};
+exports.listWithId = function (req,res,next){
+    var id = req.params.id;
+    MongoClient.connect(url,  {useNewUrlParser: true},function(err, db) {
+        if (err) throw err;
+        var query = { 'id': id };
+        const dbo = db.db('nimhoon')
+        Restaurant.find(query).toArray(function(err, result) {
+            if (err) throw err;  
+            console.log("result: " + result);
+            db.close();
+        });
+        });
+};
 
 exports.create = function(req,res){
     var newRestaurant = new Restaurant();
@@ -79,4 +132,9 @@ exports.create = function(req,res){
             })
         }
     })
+};
+
+
+exports.getComments = function(req,res,next){
+    
 };
