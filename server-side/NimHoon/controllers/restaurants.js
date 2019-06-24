@@ -39,6 +39,7 @@ exports.list = function(req,res,next){
                 Restaurant.find({'address': addressOfRestaurant_id}, function(err, docs) {
                     if(err) throw err;
                     console.log(docs);
+                    res.json(docs);
                     db.close();
                 });
             });
@@ -55,6 +56,7 @@ exports.listWithId = function (req,res,next){
         Restaurant.find(query).toArray(function(err, result) {
             if (err) throw err;  
             console.log("result: " + result);
+            res.json(result);
             db.close();
         });
         });
@@ -135,6 +137,26 @@ exports.create = function(req,res){
 };
 
 
-exports.getComments = function(req,res,next){
-    
+exports.getComments = function(req,res,next) {
+    MongoClient.connect(url,  {useNewUrlParser: true},function(err, db) {
+        if (err) throw err;
+        var id = req.params.id;
+        const dbo = db.db('nimhoon');
+        var query = {'_id' : id};
+        Restaurant.findOne(query, function(err, docs) {
+            if(err) throw err;
+            console.log(docs);
+            var comment_id = docs.comments.map(function(doc) { return doc._id; });
+            Comment.find({'_id':comment_id}, function(err, docs) {
+                if(err) throw err;
+                console.log(docs);
+                res.json(docs);
+                db.close();
+            });
+        });
+        
+    });
 };
+
+
+
