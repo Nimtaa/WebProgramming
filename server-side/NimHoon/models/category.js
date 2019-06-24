@@ -1,10 +1,8 @@
-import mongoose from 'mongoose'
+var mongoose = require('mongoose');
 
 const CategorySchema = new mongoose.Schema ({ 
     id: String, // or an auto increment number,     
     name:String, 
 });
 
-const Category = mongoose.model('Category',CategorySchema);
-
-export default Category;
+module.exports = mongoose.model('Category',CategorySchema);

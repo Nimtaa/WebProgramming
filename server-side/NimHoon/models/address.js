@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+var mongoose = require('mongoose');
 
 const AddressSchema = new mongoose.Schema ({ 
     id: String, // or an auto increment number,     
@@ -7,6 +7,4 @@ const AddressSchema = new mongoose.Schema ({
     addressLine:String, // full address text 
 });
 
-const Address = mongoose.model('Address',AddressSchema);
-
-export default Address;
+module.exports = mongoose.model('Address',AddressSchema);

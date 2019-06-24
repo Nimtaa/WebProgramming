@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+var mongoose = require('mongoose');
 
 const FoodSchema = new mongoose.Schema ({ 
     id: String, // or an auto increment number,     
@@ -8,6 +8,4 @@ const FoodSchema = new mongoose.Schema ({
     foodSet:String, // set of this food like kabab, khorak, salad 
 });
 
-const Food = mongoose.model('Food',FoodSchema);
-
-export default Food;
+module.exports = mongoose.model('Food',FoodSchema);
