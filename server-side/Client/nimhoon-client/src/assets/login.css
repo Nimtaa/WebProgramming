@@ -1,0 +1,159 @@
+@font-face{
+    font-family: Yekan;
+    src: url(../assets/fonts/BYekan/BYekan+.ttf);
+}
+@font-face{
+    font-family: YekanBold;
+    src: url(../assets/fonts/BYekan/BYekan+\ Bold.ttf);
+}
+@font-face{
+    font-family: ShabnamBold;
+    src: url(../assets/fonts/shabnam-font-v4.0.0/Shabnam-Bold.ttf);
+}
+@font-face{
+    font-family: ShabnamLight;
+    src: url(../assets/fonts/shabnam-font-v4.0.0/Shabnam-Light.woff);
+}
+@font-face{
+    font-family: Shabnam;
+    src: url(../assets/fonts/shabnam-font-v4.0.0/Shabnam.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Shabnam;
+}
+.banner_logo{
+  margin-left: 620px;
+  width: 118px;
+  margin-top: 10px;
+  margin-bottom: 7px;
+} 
+.banner_logo img{
+    margin-top: 5px;
+    width: 110px;
+}
+.login_section_div{
+    padding-top: 150px;
+    background: #e5e6e7;
+}
+.form_section {
+    margin: 0 auto;
+    max-width: 500px;
+    overflow: hidden;
+}
+.form_section h1 {
+    padding: 20px 0 15px 0;
+    font-size: 20px;
+    color: #666;
+    font-weight: lighter;
+    text-align: center;
+}
+.form_section p {
+    padding: 0 0 40px 0;
+    font-size: 15px;
+    color: #999;
+    font-weight: lighter;
+    text-align: center;
+}
+
+.form_section form { padding: 30px; }
+.form_section .tab_group {
+    
+    list-style: none;
+    margin: 0 auto;
+    max-width: 300px;
+    padding: 0;
+}
+.form_section .tab_group:after {
+    display: table;
+    clear: both;
+}
+.tab_group li{
+    font-size: 2em;
+}
+.form_section .tab_group li a {
+    display: block;
+    text-decoration: none;
+    padding: 15px;
+    color: #888;
+    font-size: 20px;
+    float: right;
+    width: 50%;
+    text-align: center;
+    border-top: 3px solid transparent;
+}
+.form_section .tab_group li a:hover {
+    background: #dedfdf;
+    color: #666;
+}
+.form_section .tab_group .active a {
+    background: #fff;
+    color: #850c7f;
+    border-bottom: 3px solid #850c7f;
+}
+.form_section input {
+    font-size: 16px;
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    color: #666;
+    border-radius: 0;
+    margin-bottom: 10px;
+    text-align: right;
+}
+.input-field input{
+    font-family: Shabnam;
+}
+.form_section #reg_tel {
+    width: 49%;
+    float: right;
+    position: relative;
+}
+.form_section #reg_eml {
+    width: 49%;
+    float: left;
+    position: relative;
+}
+.form_section input::placeholder{
+    text-align: right;
+}
+.form_section input:focus {
+    outline: 0;
+    border-color: #850c7f;
+}
+.form_section .button {
+    border: 0;
+    outline: none;
+    margin: 0 auto;
+    max-width: 80px;
+    border-radius: 19px;
+    padding: 10px;
+    padding-top: 5px;
+    font-size: 18px;
+    font-weight: 300;
+    background: #ad0aa5;
+    color: #ffffff;
+    cursor: pointer;
+    text-align: center;
+}
+.form_section .button:hover, .button:focus { background: #f50c7f; }
+.form_section .text-p{
+    text-align: right;
+}
+.form_section .text-p a {
+    text-decoration: none;
+}
+.bottom_login{
+    margin-left: 560px;
+    margin-top: 30px;
+}
+
+/* #email_input::before{
+    background-image: url("blob:https://fontawesome.com/7a85f1cc-3be9-4be6-a284-1ba6b2d79af9");
+} */

@@ -1,0 +1,119 @@
+@font-face{
+    font-family: Yekan;
+    src: url(./fonts/BYekan/BYekan+.ttf); 
+}
+@font-face{
+    font-family: YekanBold;
+    src: url(./fonts/BYekan/BYekan+Bold.ttf);
+}
+@font-face{
+    font-family: ShabnamBold;
+    src: url(./fonts/shabnam-font-v4.0.0/Shabnam-Bold.ttf);
+}
+@font-face{
+    font-family: ShabnamLight;
+    src: url(./fonts/shabnam-font-v4.0.0/Shabnam-Light.woff);
+}
+@font-face{
+    font-family: Shabnam;
+    src: url(./fonts/shabnam-font-v4.0.0/Shabnam.ttf);
+}
+
+.footer_description {
+    display: inline-block;
+    width: 200px;
+    margin-left: 100px;
+    margin-right: 90px;
+    margin-top: 27px;
+}
+.footer_description .gray-text a{
+    text-decoration: none;
+    color: rgb(88,142,248);
+}
+
+.footer {
+    padding-top: 30px;
+    display: flex;
+    direction: rtl;
+    background-color: rgb(32, 32, 32);
+    height: 400px;
+    margin-top: 20px;
+    font-family: Shabnam;
+ }
+ 
+.login_reg_footer{
+    text-align: center;
+    text-decoration: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 20px;
+}
+.login_reg_footer li{
+    display: inline;
+}
+.login_reg_footer a{
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: none;
+    font-size: 0.7em;
+    color: gray;
+}
+
+
+.footer_bottom_nav {
+    display: inline-block;
+    width: 150px;
+    height: 300px;
+    margin-left: 20px;
+    margin-right: 20px;
+} 
+
+.gray-text {
+    display: block;
+    color: gray;
+    font-size: 0.8em;
+    margin-top: 7px;
+}
+
+.white-text {
+    display: block;
+    color: white;
+    font-size: 0.85em;
+    margin-bottom: 20px;
+}
+
+.bottom_nav_line {
+    display: block;
+    margin-bottom: 20px;
+    
+}
+
+.purple_line {
+    background: #8b00af;
+    border : #8b00af;
+}
+
+.littlered_line {
+    background: #d40062;
+    border: #d40062;
+}
+
+.red_line {
+    background: #ff0613;
+    border: #ff0613;
+}
+
+.yellow_line {
+    background: #ffc300;
+    border: #ffc300;
+}
+
+.fix-position {
+    display: block;
+    width: 100%;
+    position: fixed;
+    background-color: white;
+}
+.credit_sign{
+    
+}

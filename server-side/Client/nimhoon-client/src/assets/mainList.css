@@ -1,0 +1,20 @@
+.main_list_neighbor_input_element{
+    font-family: Shabnam;
+    border: 1px;
+    border-radius: .1rem;
+    direction: rtl;
+    font-size: 0.41em;
+    float: right;
+    margin-top: 12px;
+    margin-right: 10px;
+    width: 180px;   
+    color: #cbcbcb;
+    padding-right: 8px;
+    
+}
+.SearchBox{
+    color: #cbcbcb;
+}
+.main_list_neighbor_input_element:focus{
+    color: #000000;
+}
