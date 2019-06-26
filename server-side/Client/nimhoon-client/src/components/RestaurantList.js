@@ -60,7 +60,7 @@ class  RestaurantList extends Component {
                     this.setState({ numberOfResults: this.state.numberOfResults+1})
                     }
                 else
-                RestaurantComponents.push(<RestaurantCard name ={item.name} address={item.address}
+                RestaurantComponents.push(<RestaurantCard name ={item.name} address={item.address.addressLine}
                     rate = {item.rate} food = {item.food} close={true}/>);
                 });
             console.log(this.state.ClosedRestaurants);
@@ -70,9 +70,9 @@ class  RestaurantList extends Component {
                  <div className="SearchBoxContainer">
                 <SearchBox/>
                 </div>
-                <div>   
+                {/* <div>   
                     <FoodFilter  = {}/>
-                </div>
+                </div> */}
              <div>
             <div className = "Counter">
             
