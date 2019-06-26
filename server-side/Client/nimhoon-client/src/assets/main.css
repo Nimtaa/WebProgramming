@@ -103,6 +103,7 @@
 
 .main_search_box {
     border-width: 1px;
+    /* width : 60%; */
     width: 750px;
     height: 71px;
     background-color: #fff;
@@ -163,12 +164,13 @@
     float: right;
     margin-top: 12px;
     margin-right: 10px;
-    width: 400px;
+    width: 50%;
     color: #b7b7b7;
 }
 .neighbor_input{
     float: right;
-    width: 572px;
+    width: 65%;
+    width: 517px;
     height: 48px;
 
     padding-top: 3px;
@@ -299,7 +301,8 @@
     border-width: 1px;
     font-size: 0.8em;
     height: 200px;
-    width: 320px;
+    /* width: 320px; */
+    width: 25%;
     background-color: #fff;
     text-align: center;
     box-shadow: -3px 3px 9px -5px;
@@ -308,6 +311,30 @@
     overflow: hidden;
     transition: box-shadow 0.3s;
     box-shadow:0px 0px 5px 0px #cfcfcf85;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-top: 80px;
+}
+.top_restaurant_div_close{
+    font-family: Shabnam;
+    text-align: center;
+    float: right;
+    border-width: 1px;
+    font-size: 0.8em;
+    height: 200px;
+    /* width: 320px; */
+    width: 25%;
+    background-color: rgb(179, 176, 176);
+    text-align: center;
+    box-shadow: -3px 3px 9px -5px;
+    border-radius: 3px;
+    perspective: 1px;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+    box-shadow:0px 0px 5px 0px #cfcfcf85;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-top: 80px;
 }
 .top_restaurant_div:hover{
     box-shadow:0px 0px 20px 0px #cfcfcf85;

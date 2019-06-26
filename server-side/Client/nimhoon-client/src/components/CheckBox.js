@@ -34,7 +34,7 @@ class  CheckBox extends Component {
             <input type="checkbox"
               checked={isChecked}
               onChange={this.toggleChange}
-              onClick={this.props.parentFunction(this.state.isChecked)}
+              onClick={this.props.parentFunction(this.state.isChecked,this.props.name)}
             />
             {this.props.name}
            </label>

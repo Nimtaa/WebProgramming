@@ -12,13 +12,29 @@ const options = [
     { value: 'vanilla', label: 'مشهد' }
   ]
 
-function changeTest(){
-    this.setState({
-        query : false
-    });
-}
 class Search extends React.Component {
-   render (){
+    constructor(props) {
+        super(props);
+        this.state = {title: "مثلا نیاوران"};
+    }
+    
+
+    changeTest(){
+        this.setState({
+            query : false
+        });
+    }
+    handleChange(event){
+        this.setState({
+            title : event.value
+        });
+    }
+    clickHandler(event){
+        this.setState({
+            title : ""
+        });
+    }
+    render (){
        return (
             <React.Fragment>
                 <div class="main_banner">
@@ -45,12 +61,20 @@ class Search extends React.Component {
                                     <span>
                                         <img  id="pin_icon" src="../mocks/pin.png"/>
                                     </span>
-                                    <input class="neighbor_input_element" type="text" name="neighbour_input" value="مثلا نیاوران"/>
+                                    {/* <input class="neighbor_input_element" type="text" name="neighbour_input" value="مثلا نیاوران"/> */}
+                                    <input className="main_list_neighbor_input_element" 
+                                    type="text" name="mainList_neighbourSearch" 
+                                    value={this.state.title}
+                                    onChange={this.handleChange.bind(this)}
+                                    onClick={this.clickHandler.bind(this)}
+                                    />
                                 </span>
+                                {/* <img src="/mocks/Search_icon.jpg"/> */}
+                                <button className = "SearchButton" onClick ={this.props.searchSubmit(this.state.title)} ></button>
                             </div>
                         </div>
                     </div>
-                    <Select options={options}  placeholder="شهر" styles={customStyles} onChange={changeTest}/>
+                    <Select options={options}  placeholder="شهر" styles={customStyles} />
             </React.Fragment>
        );
    }

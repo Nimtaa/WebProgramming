@@ -1,26 +1,83 @@
-.main_list_neighbor_input_element{
+
+.SearchBox{
+    font-size:1.85em;
     font-family: Shabnam;
-    border: 1px;
-    border-radius: .1rem;
+
+}
+.SearchBoxInput{
+    font-family: Shabnam;
+    border: 2px;
+    border-width: 0.5px;
+    color: #cbcbcb;
+    border-radius: 4px;
     direction: rtl;
-    font-size: 0.41em;
     float: right;
     margin-top: 12px;
     margin-right: 10px;
     width: 180px;   
-    color: #cbcbcb;
+    border-color: #cbcbcb;
     padding-right: 8px;
-    
+    /* border-bottom-width: 10px; */
+    height: 30px;
+    margin-top: 5px;
+    width: 440px;
 }
-.SearchBox{
-    color: #cbcbcb;
+.SearchBoxInput:focus{
+    outline: none;
 }
+
 .main_list_neighbor_input_element:focus{
     color: #000000;
+    outline: none;
 }
 .FoodFilterContainer{
     float: right;
 }
 .ReactCheckBox{
-    
+
+}
+.SearchButton{
+    float: left;
+    height: 42px;
+    outline: none;
+    background: url(/mocks/Search_icon.jpg);
+    width: 59px;
+    height: 56px;
+    margin-top: 7px;
+    margin-left: 7px;
+    border-right-width: 1px;
+    border-top-color: rgb(226, 226, 226);
+    border-top-style: solid;
+    border-top-width: 1px;
+    /* border-right-color: rgb(226, 226, 226); */
+    /* border-right-style: solid;
+    border-right-width: 1px; */
+    border-bottom-color: rgb(226, 226, 226);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left-color: rgb(226, 226, 226);
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    border-radius: .7rem;
+    border-top-left-radius: 0.7rem;
+    /* border-top-right-radius: 0.7rem; */
+    /* border-bottom-right-radius: 0.7rem; */
+    border-bottom-left-radius: 0.7rem;
+
+
+}
+
+.Counter{
+    font-family: Shabnam;
+    float: right;
+}
+
+.ClosedTitle{
+    float: right;
+    font-family: Shabnam;   
 }

@@ -7,6 +7,8 @@ import Search from './components/Search';
 import RestaurantCard from './components/RestaurantCard';
 import SearchBox from './components/SearchBox';
 import FoodFilter from './components/FoodFilter';
+import RestaurantList from './components/RestaurantList';
+
 
 
 class App extends React.Component { 
@@ -16,19 +18,18 @@ class App extends React.Component {
   }
 
   render(){
-    return (
-      <FoodFilter/>
-    )
+   
     // if(this.state.query){
-    //   return (
-    //     <React.Fragment>
-    //         <Header/>
-    //         <Search/>
-    //         <Footer/>
-    //       {/* <RestaurantCard name= {'شاندیز'} address = {'Hafez Ave'} rate= {'4'} food={'foodG'} /> */}
-    //       {/* <SearchBox/> */}
-    //     </React.Fragment>
-    //     );
+      return (
+        <RestaurantList/>
+        // <React.Fragment>
+        //     <Header/>
+        //     <Search/>
+        //     <Footer/>
+        //   {/* <RestaurantCard name= {'شاندیز'} address = {'Hafez Ave'} rate= {'4'} food={'foodG'} /> */}
+        //   {/* <SearchBox/> */}
+        // </React.Fragment>
+        );
     // }else{
     //   return (
     //      <SearchBox/> 

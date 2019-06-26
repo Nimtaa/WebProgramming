@@ -26,7 +26,7 @@ class  SearchBox extends Component {
    render(){
        return(
        <div className="SearchBox">
-            <input className="main_list_neighbor_input_element" 
+            <input className="SearchBoxInput" 
             type="text" name="mainList_neighbourSearch" 
             value={this.state.title}
             onChange={this.handleChange.bind(this)}
