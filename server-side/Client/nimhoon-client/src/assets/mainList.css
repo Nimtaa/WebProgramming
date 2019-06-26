@@ -18,3 +18,9 @@
 .main_list_neighbor_input_element:focus{
     color: #000000;
 }
+.FoodFilterContainer{
+    float: right;
+}
+.ReactCheckBox{
+    
+}

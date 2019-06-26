@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Select from 'react-select'
-
+import Restaurants from '../Restaurants';
+import App from '../App';
 import '../assets/global.css';
 import '../assets/main.css';
 
@@ -10,41 +11,50 @@ const options = [
     { value: 'strawberry', label: 'ساری' },
     { value: 'vanilla', label: 'مشهد' }
   ]
-function Search(props) {
-   return (
-       <React.Fragment>
-   <div class="main_banner">
-            <div class="banner_logo">
-                    <img  src="../mocks/logo.png"/>
-                </div>
-        <div class="banner_text">
-            <h>سفارش آنلاین غذا
-            از بهترین رستوران‌ها و فست‌فود‌‌ها</h>            
-            <p>.برای دیدن لیست رستوران‌ها و فست‌فود‌هایی که به شما سرویس می‌دهند، منطقه خود را وارد کنید</p>
-            <div class="main_search_box">
-          
-                <span class="city_select">
-               
-                    {/* <select class="city_select_element">
-                        <option value="تهران">تهران</option>
-                        <option value="ساری">ساری</option>
-                        <option value="مشهد">مشهد</option>
-                        <option value="کرج">کرج</option>
-                      </select> */}
-                </span>
-                
-                <span class="neighbor_input">
-                    <span>
-                        <img  id="pin_icon" src="../mocks/pin.png"/>
-                    </span>
-                    <input class="neighbor_input_element" type="text" name="neighbour_input" value="مثلا نیاوران"/>
-                </span>
-            </div>
-        </div>
-    </div>
-    <Select options={options}  placeholder="شهر" styles={customStyles}/>
-    </React.Fragment>
-   );
+
+function changeTest(){
+    this.setState({
+        query : false
+    });
+}
+class Search extends React.Component {
+   render (){
+       return (
+            <React.Fragment>
+                <div class="main_banner">
+                            <div class="banner_logo">
+                                    <img  src="../mocks/logo.png"/>
+                                </div>
+                        <div class="banner_text">
+                            <h>سفارش آنلاین غذا
+                            از بهترین رستوران‌ها و فست‌فود‌‌ها</h>            
+                            <p>.برای دیدن لیست رستوران‌ها و فست‌فود‌هایی که به شما سرویس می‌دهند، منطقه خود را وارد کنید</p>
+                            <div class="main_search_box">
+                        
+                                <span class="city_select">
+                            
+                                    {/* <select class="city_select_element">
+                                        <option value="تهران">تهران</option>
+                                        <option value="ساری">ساری</option>
+                                        <option value="مشهد">مشهد</option>
+                                        <option value="کرج">کرج</option>
+                                    </select> */}
+                                </span>
+                                
+                                <span class="neighbor_input">
+                                    <span>
+                                        <img  id="pin_icon" src="../mocks/pin.png"/>
+                                    </span>
+                                    <input class="neighbor_input_element" type="text" name="neighbour_input" value="مثلا نیاوران"/>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <Select options={options}  placeholder="شهر" styles={customStyles} onChange={changeTest}/>
+            </React.Fragment>
+       );
+   }
+
 }
 
 
