@@ -300,7 +300,7 @@
     float: right;
     border-width: 1px;
     font-size: 0.8em;
-    height: 200px;
+    height: 250px;
     /* width: 320px; */
     width: 25%;
     background-color: #fff;
@@ -311,9 +311,9 @@
     overflow: hidden;
     transition: box-shadow 0.3s;
     box-shadow:0px 0px 5px 0px #cfcfcf85;
-    margin-left: 20px;
-    margin-bottom: 20px;
-    margin-top: 80px;
+    /* margin-left: 20px;
+    margin-bottom: 20px; */
+    /* margin-top: 80px; */
 }
 .top_restaurant_div_close{
     font-family: Shabnam;
@@ -321,10 +321,10 @@
     float: right;
     border-width: 1px;
     font-size: 0.8em;
-    height: 200px;
+    height: 250px;
     /* width: 320px; */
     width: 25%;
-    background-color: rgb(179, 176, 176);
+    background-color: rgb(212, 211, 211);
     text-align: center;
     box-shadow: -3px 3px 9px -5px;
     border-radius: 3px;
@@ -332,9 +332,9 @@
     overflow: hidden;
     transition: box-shadow 0.3s;
     box-shadow:0px 0px 5px 0px #cfcfcf85;
-    margin-left: 20px;
-    margin-bottom: 20px;
-    margin-top: 80px;
+    /* margin-left: 20px;
+    margin-bottom: 20px; */
+    /* margin-top: 80px; */
 }
 .top_restaurant_div:hover{
     box-shadow:0px 0px 20px 0px #cfcfcf85;

@@ -4,6 +4,7 @@ import '../assets/main.css';
 import '../assets/mainList.css';
 import { booleanLiteral } from '@babel/types';
 
+
 class  CheckBox extends Component {
     static propTypes = {
         isChecked: booleanLiteral,
@@ -16,7 +17,7 @@ class  CheckBox extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isChecked: props.isChecked,
+            isChecked: props.isChecked
         };
     }
       
@@ -29,14 +30,15 @@ class  CheckBox extends Component {
         // const { disabled } = this.props;
         const { isChecked } = this.state;
         return (
-            <div className="ReactCheckBox">
+            <div className="ReactCheckBox_div">
           <label>
-            <input type="checkbox"
+          {this.props.name}
+            <input type="checkbox" className="ReactCheckBox"
               checked={isChecked}
               onChange={this.toggleChange}
               onClick={this.props.parentFunction(this.state.isChecked,this.props.name)}
             />
-            {this.props.name}
+           
            </label>
            </div>
         );

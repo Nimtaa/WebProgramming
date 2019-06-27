@@ -32,9 +32,24 @@
 }
 .FoodFilterContainer{
     float: right;
+    text-align: right;
 }
 .ReactCheckBox{
-
+    width: 1.6em;
+    height: 1.6em;
+    background-color: #fbfbfb;
+    border-radius: 24%;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+    -webkit-appearance: checkbox;
+    outline: none;
+    cursor: pointer;
+}
+/* .ReactCheckBox:checked{
+    
+} */
+.ReactCheckBox_div{
+    font-family: Shabnam;
 }
 .SearchButton{
     float: left;
@@ -79,5 +94,41 @@
 
 .ClosedTitle{
     float: right;
+    
     font-family: Shabnam;   
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #191919;
+    padding-right: 80px;
+    /* margin: 128px 16px 32px 0;
+    margin: 8rem 1rem 2rem 0; */
+}
+
+
+.ClosedRestaurantsContainer{
+    margin-top: 25px;
+    margin-right: 80px;
+    display: grid;
+    grid-template-columns: repeat(3,320px);
+    
+    float: right;
+    grid-gap: 10px;
+    direction: rtl;
+}
+.ClosedRestaurantsContainer  > div{
+    width :auto;
+    height: 185px;
+}
+.ListOfRestaurants{
+    margin-right: 80px;
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(3,320px);
+    float: right;
+    grid-gap: 10px;
+    direction: rtl;
+}
+.ListOfRestaurants > div{
+    width :auto;
+    height :185px;
 }
