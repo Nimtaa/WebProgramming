@@ -15,14 +15,15 @@ exports.list = function(req,res,next){
             const dbo = db.db('nimhoon');
             Address.find(query,{_id:1}, function(err, docs) {
                 var addressOfRestaurant_id = docs.map(function(doc) { return doc._id; });
-                Category.find({'name': {$in:req.query.category}},{_id:1}, function(err,docs){
+                Category.find({'name': {'$in':req.query.category}},{_id:1}, function(err,docs){
                     if(err) throw err;
                     var category_id = docs.map(function(doc){return doc._id});
                     console.log("category_id: ",category_id);
-                    Restaurant.find({'address': addressOfRestaurant_id}, {'categories' : {$in: category_id}}
+                    Restaurant.find({'address': addressOfRestaurant_id, 'categories' : {'$in': category_id}}
                     ,function(err, docs) {
                         if(err) throw err;
-                        console.log(docs);
+                        res.setHeader("Access-Control-Allow-Origin", '*');
+                        res.json(docs);
                     });
                 });
             });     
