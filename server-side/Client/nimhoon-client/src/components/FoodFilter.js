@@ -15,7 +15,9 @@ class  FoodFilter extends Component {
         
         if(isChecked){
             console.log("Iam going to change the state")
-            this.setState({checked : [this.state.checked,name]});
+            var copy = this.state.checked;
+            copy.push(name);
+            this.setState({checked : copy});
             this.props.RestaurantListFunction(this.state.checked);
         }
         else{
@@ -40,7 +42,7 @@ class  FoodFilter extends Component {
     checkBoxInit(){
         //initialize the checkboxes
         this.props.FoodSetName.map((item, i) => {                   
-            checkboxes.push (<CheckBox name={item} parentFunction={this.parentFunction} />) ;
+            checkboxes.push (<CheckBox name={item.name} value={item.id} parentFunction={this.parentFunction} />) ;
     })
     }
    

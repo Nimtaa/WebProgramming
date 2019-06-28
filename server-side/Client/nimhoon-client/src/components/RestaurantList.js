@@ -21,22 +21,48 @@ class  RestaurantList extends Component {
             RestaurantComponents : [],
             ClosedRestaurantsComponents:[],
             query : 'area=',
-            categoryQuery: '',
-            foodSet :[],
+            categoryQuery: "",
+            categorySet :[],
             FoodFilter :null
         };
         this.foodFilterParent = this.foodFilterParent.bind(this);
         this.RestaurantHandler = this.RestaurantHandler.bind(this);
         this.FoodFilterHandler = this.FoodFilterHandler.bind(this);
+        this.categoryQueryHandler = this.categoryQueryHandler.bind(this);
     }
   
     //Listen on foodFilter change state to update filter
     foodFilterParent(selectedFilters){
+        console.log("Selected Filters: ",selectedFilters);
         //here I have  selected filters
         selectedFilters.map((item,i)=>{
-          this.setState({categoryQuery : this.state.categoryQuery + '&category='+item})  ;
+            var copyQuery = this.state.categoryQuery;
+            if(!copyQuery.includes(item)){
+                console.log("into the if")
+                copyQuery = copyQuery + '&category='+item;
+                console.log("Copy Query1: ",copyQuery);
+            }
+            console.log("Copy Query2: ",copyQuery);
+            this.setState({categoryQuery : copyQuery},function(data){
+                this.categoryQueryHandler();
+            }); 
         });
-        console.log(this.state.categoryQuery);
+    }
+    categoryQueryHandler(){
+        console.log("This is running.!")
+        axios.get('http://127.0.0.1:9000/restaurants?area=k'+this.state.categoryQuery)
+        .then((response) =>
+                this.setState({ListOfRestaurants: response.data},function(data){
+                    this.RestaurantHandler();
+                }
+                ))
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        })
+        .finally(function () {
+            // always executed
+        });
     }
     isOpen(openingTime, closingTime){
         var h = new Date().getHours();
@@ -68,10 +94,9 @@ class  RestaurantList extends Component {
             });
     }
     FoodFilterHandler(){
-        console.log(this.state.foodSet);
-        this.setState({FoodFilter : <FoodFilter FoodSetName={this.state.foodSet}
+        console.log("Category Set :", this.state.categorySet);
+        this.setState({FoodFilter : <FoodFilter FoodSetName={this.state.categorySet}
              RestaurantListFunction = {this.foodFilterParent}/>})
-        
     }
 
     componentDidMount(){ 
@@ -91,7 +116,7 @@ class  RestaurantList extends Component {
 
         axios.get('http://127.0.0.1:9000/foods')
         .then((response) =>
-            this.setState({foodSet: response.data})
+            this.setState({categorySet: response.data})
         ).then(()=>{
             this.FoodFilterHandler();
         })
@@ -104,6 +129,10 @@ class  RestaurantList extends Component {
         });
 
 
+    }
+    
+    componentWillUpdate(){
+        console.log("this is co willl updated ", this.state.categoryQuery);
     }
     render() {
         console.log("this is render")
@@ -126,15 +155,15 @@ class  RestaurantList extends Component {
                  <div className="SearchBoxContainer">
                 <SearchBox/>
                 </div>
-                <div >
-                   {/* food filter comes here */}
-                   {this.state.FoodFilter}
-                </div>
              
             <div className = "Counter">
                 
              {this.state.numberOfResults} 
             </div>  
+            <span>
+                   {/* food filter comes here */}
+                   {this.state.FoodFilter}
+            </span>
             <div className= "ListOfRestaurants">
             {this.state.RestaurantComponents}
             </div>
