@@ -19,7 +19,7 @@ exports.list = function(req,res,next){
                     if(err) throw err;
                     var category_id = docs.map(function(doc){return doc._id});
                     console.log("category_id: ",category_id);
-                    Restaurant.find({'address': addressOfRestaurant_id, 'categories' : {'$in': category_id}}
+                    Restaurant.find({ '$and':[{'address': addressOfRestaurant_id}, {'categories' : {'$in': category_id}}]}
                     ,function(err, docs) {
                         if(err) throw err;
                         res.setHeader("Access-Control-Allow-Origin", '*');

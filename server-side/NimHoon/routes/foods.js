@@ -3,10 +3,10 @@ var router = express.Router();
 var restaurant = require('../controllers/restaurants');
 var comment = require('../controllers/comments');
 
-var food = require('../controllers/foods');
+var category = require('../controllers/categories');
 
 router.get('/', function(req, res, next) {
-    food.listFoodSet(req,res,next);
+    category.listCategory(req,res,next);
 });
 
 
