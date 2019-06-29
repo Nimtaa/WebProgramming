@@ -15,7 +15,7 @@ exports.list = function(req,res,next){
             const dbo = db.db('nimhoon');
             Address.find(query,{_id:1}, function(err, docs) {
                 var addressOfRestaurant_id = docs.map(function(doc) { return doc._id; });
-                Category.find({'name': {'$in':req.query.category}},{_id:1}, function(err,docs){
+                Category.find({'id': {'$in':req.query.category}},{_id:1}, function(err,docs){
                     if(err) throw err;
                     var category_id = docs.map(function(doc){return doc._id});
                     console.log("category_id: ",category_id);
@@ -63,11 +63,12 @@ exports.listWithId = function (req,res,next){
     var id = req.params.id;
     MongoClient.connect(url,  {useNewUrlParser: true},function(err, db) {
         if (err) throw err;
-        var query = { 'id': id };
+        var query = { '_id': id };
         const dbo = db.db('nimhoon')
-        Restaurant.find(query).toArray(function(err, result) {
+        Restaurant.find(query).populate('foods',['name','price','description','foodSet'])
+        .exec(function(err, result) {
             if (err) throw err;  
-            console.log("result: " + result);
+            res.setHeader("Access-Control-Allow-Origin", '*');
             res.json(result);
             db.close();
         });

@@ -6,6 +6,7 @@ exports.listCategory = function(req,res,next){
 
     Category.find({},function(err,results){
         if(err) throw err;
+        console.log(results);
         res.setHeader("Access-Control-Allow-Origin", '*');
         res.json(results);
     })
