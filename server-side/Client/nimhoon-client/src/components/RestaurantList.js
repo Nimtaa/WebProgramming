@@ -5,12 +5,10 @@ import '../assets/mainList.css';
 import RestaurantCard from './RestaurantCard';
 import SearchBox from './SearchBox';
 import FoodFilter from './FoodFilter';
-
 const axios = require('axios');
-
-
 var ClosedRestaurants = [];
 var FoodFilterArray = [];
+
 class  RestaurantList extends Component {
     
     constructor(props) {
@@ -78,18 +76,19 @@ class  RestaurantList extends Component {
     RestaurantHandler(){
         console.log("this is res handle");
         this.state.ListOfRestaurants.map((item, i) => {
+            console.log("Hey categories : ", item.categories);
             if(this.isOpen(item.openingTime,item.closingTime)){
                    // this.setState({ numberOfResults: this.state.numberOfResults+1})
             this.setState({
                 RestaurantComponents : [this.state.RestaurantComponents,<RestaurantCard name ={item.name} address={item.address.addressLine}
-                    rate = {item.rate} food = {item.food} close={false}/>],
+                    rate = {item.rate} food = {item.categories} close={false}/>],
                     numberOfResults : this.state.numberOfResults + 1
             })
                 }
             else
             this.setState({
                 ClosedRestaurantsComponents : [this.state.ClosedRestaurantsComponents,<RestaurantCard name ={item.name} address={item.address.addressLine}
-                    rate = {item.rate} food = {item.food} close={true}/>]
+                    rate = {item.rate} food = {item.categories} close={true}/>]
             })
             });
     }
@@ -98,7 +97,6 @@ class  RestaurantList extends Component {
         this.setState({FoodFilter : <FoodFilter FoodSetName={this.state.categorySet}
              RestaurantListFunction = {this.foodFilterParent}/>})
     }
-
     componentDidMount(){ 
         axios.get('http://127.0.0.1:9000/restaurants?area=k')
         .then((response) =>
@@ -113,22 +111,6 @@ class  RestaurantList extends Component {
         .finally(function () {
             // always executed
         });
-
-        axios.get('http://127.0.0.1:9000/foods')
-        .then((response) =>
-            this.setState({categorySet: response.data})
-        ).then(()=>{
-            this.FoodFilterHandler();
-        })
-        .catch(function (error) {
-            // handle error
-            console.log(error);
-        })
-        .finally(function () {
-            // always executed
-        });
-
-
     }
     
     componentWillUpdate(){
@@ -150,30 +132,39 @@ class  RestaurantList extends Component {
             //     });
             console.log(this.state.ClosedRestaurantsComponents);
             console.log(this.state.RestaurantComponents);
+            let closedTitle ;
+            if(this.state.ClosedRestaurantsComponents.length){
+                closedTitle = <p className="ClosedTitle">رستوران‌های بسته</p>
+            }else{
+                closedTitle = null;
+            }
          return (
-             <div>
-                 <div className="SearchBoxContainer">
-                <SearchBox/>
-                </div>
-             
-            <div className = "Counter">
+            <React.Fragment>
+                <div className="restaurant_search_banner"/>
+                <div className="SearchBoxContainer">
+                    <div className = "Counter">رستوران فعال {this.state.numberOfResults} </div>  
+                    <div className="SearchBox_div">
+                    <SearchBox/>
+                    </div>
+                </div> 
+                {/* <div className="BodyContainer"> */}
+                    <fieldset className="SideBar">
+                        {/* food filter comes here */}
+                        <span>
+                        {this.state.FoodFilter}
+                        </span>
+                    </fieldset>
+                <div className="AllRestaurants">
+                    <div className= "OpenRestaurants">
+                            {this.state.RestaurantComponents}
+                    </div>
+                    {closedTitle}
+                    <div className="ClosedRestaurants">
+                            {this.state.ClosedRestaurantsComponents}
+                        </div>
+                    </div>
                 
-             {this.state.numberOfResults} 
-            </div>  
-            <span>
-                   {/* food filter comes here */}
-                   {this.state.FoodFilter}
-            </span>
-            <div className= "ListOfRestaurants">
-            {this.state.RestaurantComponents}
-            </div>
-            <div className="ClosedRestaurants">
-            <h4 className="ClosedTitle">رستوران‌های بسته</h4>
-            <div className="ClosedRestaurantsContainer">
-                {this.state.ClosedRestaurantsComponents}
-                </div>
-                </div>
-                </div>
+            </React.Fragment> 
            );
     }
 }

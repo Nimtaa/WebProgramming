@@ -338,6 +338,11 @@
 }
 .top_restaurant_div:hover{
     box-shadow:0px 0px 20px 0px #cfcfcf85;
+    cursor: pointer;
+}
+.top_restaurant_div_close:hover{
+    box-shadow:0px 0px 20px 0px #cfcfcf85;
+    cursor: pointer;
 }
 .top_restaurant_div p{
     color:rgb(150, 150, 150);
@@ -622,7 +627,7 @@
 }
 .top_restaurant_button{
     color: rgb(212,2,99);
-    margin-top:10px;
+    margin-top:0px;
     background-color: white;
     font-size: 1.1em;
     font-family: Shabnam;
@@ -641,12 +646,29 @@
     text-align: center;
     border: 1px solid;
     transition: 0.3s;
+    outline: none;
 
 }
 .top_restaurant_button:hover{
     background-color: rgb(241, 226, 232);
+    cursor: pointer;
 }
+
 .orange_rating{
     color:rgb(249,185,43);
     font-weight: 700;
+}
+.card_restaurant_food{
+    color: #4a4a4a;
+    font-weight: 600;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+    list-style: none;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
 }

@@ -8,6 +8,9 @@ import RestaurantCard from './components/RestaurantCard';
 import SearchBox from './components/SearchBox';
 import FoodFilter from './components/FoodFilter';
 import RestaurantList from './components/RestaurantList';
+import RestaurantCardLarge from './components/RestaurantCardLarge';
+import FoodCard from './components/FoodCard';
+import RestaurantPage from './components/RestaurantPage';
 
 
 
@@ -21,21 +24,21 @@ class App extends React.Component {
    
     // if(this.state.query){
       return (
-        <RestaurantList/>
         // <React.Fragment>
+        // <div className="ListApp">  
         //     <Header/>
-        //     <Search/>
+        //     <RestaurantList/>
         //     <Footer/>
-        //   {/* <RestaurantCard name= {'شاندیز'} address = {'Hafez Ave'} rate= {'4'} food={'foodG'} /> */}
-        //   {/* <SearchBox/> */}
+        // </div>
         // </React.Fragment>
-        );
-    // }else{
-    //   return (
-    //      <SearchBox/> 
-    //   );
-    // }
-    
+        <RestaurantList/>
+
+        // <React.Fragment>
+        // {/* <RestaurantCardLarge name={'دینارو'} rate={32} address={'مشنسیشس'} food={'ایرانی خارجی داخلی بیرونی'} /> */}
+        // {/* <FoodCard name={'قیمه'} price= {'1200'} description={'خوب درست شده'}/> */}
+        // <RestaurantPage id={'z5d1752db5e763c40e0c71496'}/>
+        // </React.Fragment>
+        );    
   }
 }
 

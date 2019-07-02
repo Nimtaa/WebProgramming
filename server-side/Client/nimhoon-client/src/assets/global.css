@@ -33,12 +33,17 @@
 
 .footer {
     padding-top: 30px;
-    display: flex;
+    /* display: flex; */
     direction: rtl;
     background-color: rgb(32, 32, 32);
     height: 400px;
     margin-top: 20px;
     font-family: Shabnam;
+    display: inline-flex;
+    /* height: 100%; */
+    width: 100%;
+    position: relative;
+    margin-top: 11rem;
  }
  
 .login_reg_footer{

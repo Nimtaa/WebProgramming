@@ -8,7 +8,8 @@
     font-family: Shabnam;
     border: 2px;
     border-width: 0.5px;
-    color: #cbcbcb;
+    /* color: #cbcbcb; */
+    background-color:#e6e6e6; 
     border-radius: 4px;
     direction: rtl;
     float: right;
@@ -25,14 +26,20 @@
 .SearchBoxInput:focus{
     outline: none;
 }
-
 .main_list_neighbor_input_element:focus{
     color: #000000;
     outline: none;
 }
-.FoodFilterContainer{
+.SideBar{
     float: right;
     text-align: right;
+    border-width: 1px;
+    flex: 20%;
+    margin-top: 80px;
+    margin-right: 50px;
+    margin-left: 10px;
+    direction: ltr;
+
 }
 .ReactCheckBox{
     width: 1.6em;
@@ -50,6 +57,14 @@
 } */
 .ReactCheckBox_div{
     font-family: Shabnam;
+}
+.ReactCheckBox_div:hover{
+    box-shadow: -3px 3px 9px -5px;
+    border-radius: 3px;
+    perspective: 1px;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+    box-shadow:0px 0px 5px 0px #c9c9c985;
 }
 .SearchButton{
     float: left;
@@ -83,52 +98,255 @@
     /* border-top-right-radius: 0.7rem; */
     /* border-bottom-right-radius: 0.7rem; */
     border-bottom-left-radius: 0.7rem;
-
-
 }
-
 .Counter{
     font-family: Shabnam;
     float: right;
 }
-
 .ClosedTitle{
     float: right;
-    
     font-family: Shabnam;   
     font-size: 1.3rem;
     font-weight: 700;
     color: #191919;
-    padding-right: 80px;
+    padding-right: 90px;
     /* margin: 128px 16px 32px 0;
     margin: 8rem 1rem 2rem 0; */
 }
 
 
-.ClosedRestaurantsContainer{
-    margin-top: 25px;
+.ClosedRestaurants{
+    margin-top: 70px;
     margin-right: 80px;
-    display: grid;
-    grid-template-columns: repeat(3,320px);
-    
-    float: right;
-    grid-gap: 10px;
-    direction: rtl;
+    /* display: grid;
+    grid-template-columns: repeat(3,320px); */
+    /* grid-gap: 10px; */
+    display: flex;
+    flex-flow: row wrap;
+    /* justify-content: right; */
+    /* grid-gap: 10px; */
+    justify-content: flex-start;
+    /* justify-content: space-around; */
+    flex-direction: row-reverse;
+
 }
-.ClosedRestaurantsContainer  > div{
-    width :auto;
+@media screen and (max-width: 70em) and (min-width : 40em) {
+    /* .ClosedRestaurants {
+      grid-template-columns: repeat(2, 320px);
+      grid-gap: 10px;
+    } */
+  }
+@media screen and (max-width: 40em) {
+    /* .ClosedRestaurants {
+      grid-template-columns: repeat(1, 320px);
+      grid-gap: 10px;
+    } */
+  }
+.ClosedRestaurants  > div{
+    /* width :auto;
+    height: 185px; */
+    margin: 11px;
+    /* flex-shrink: 0; */
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 27%;
     height: 185px;
 }
-.ListOfRestaurants{
+.AllRestaurants{
+    width: 1172px;
+    padding-right: 85px;
+}
+.OpenRestaurants{
+    /* margin-right: 300px; */
     margin-right: 80px;
     margin-top: 80px;
-    display: grid;
+    /* display: grid;
     grid-template-columns: repeat(3,320px);
-    float: right;
-    grid-gap: 10px;
-    direction: rtl;
+    float: right; */
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+    
+    /* direction: rtl; */
 }
-.ListOfRestaurants > div{
+@media screen and (max-width: 70em) and (min-width : 40em){
+    .OpenRestaurants{
+      flex-wrap: wrap;
+    }
+    .OpenRestaurants:first-child{
+        flex-basis: 50%;
+    }
+    .ClosedRestaurants{
+        flex-wrap: wrap;
+      }
+    .ClosedRestaurants:first-child{
+        flex-basis: 50%;
+    }
+}
+@media screen and (max-width: 40em) {
+    .OpenRestaurants{
+        flex-wrap: wrap;
+    }
+    .OpenRestaurants:first-child{
+        flex-basis: 100%;
+    }
+    .ClosedRestaurants{
+        flex-wrap: wrap;
+    }
+    .ClosedRestaurants:first-child{
+        flex-basis: 100%;
+    }
+}
+.OpenRestaurants > div{
     width :auto;
     height :185px;
+    margin: 11px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 27%;
+}
+.BodyContainer{
+    /* display: flex; */
+    direction: rtl;
+    
+}
+.SearchBoxContainer{
+    height: 80px;
+    background-color: white;
+}
+.SearchBox_div{
+    padding-top: 25px;
+}
+.restaurant_search_banner{
+    height: 9rem;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-image: url(/mocks/restaurant_search_banner.png);
+}
+
+
+.RestaurantCardLarge_div{
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    font-family: Shabnam;
+    border-width: 1px;
+    font-size: 0.8em;
+    height: 300px;
+    width: 50%;
+    background-color: #fff;
+    text-align: center;
+    box-shadow: -3px 3px 9px -5px;
+    border-radius: 3px;
+    perspective: 1px;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+    box-shadow:0px 0px 5px 0px #cfcfcf85;
+}
+.RestaurantCardLarge_div:hover{
+    box-shadow:0px 0px 20px 0px #cfcfcf85;
+}
+.RestaurantCardLarge_logo{
+    width: 84px;
+    height: 84px;
+    margin-top: 25px;
+    border: 2px;
+    box-shadow:0px 0px 20px 0px #cfcfcf85;
+    padding-right: 6.5px;
+
+}
+.food_card_div{
+    font-family: Shabnam;
+    text-align: center;
+    float: right;
+    border-width: 1px;
+    font-size: 0.8em;
+    height: 215px;
+    width: 35%;
+    height: 175px;
+    background-color: #fff;
+    text-align: center;
+    box-shadow: -3px 3px 9px -5px;
+    border-radius: 3px;
+    perspective: 1px;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+    box-shadow:0px 0px 5px 0px #cfcfcf85;
+}
+.food_card_div:hover{
+    box-shadow: -3px 3px 9px -5px;
+    border-radius: 3px;
+    perspective: 1px;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+    box-shadow:0px 0px 5px 0px #c9c9c985;
+    cursor: pointer;
+}
+.food_card_button{  
+    color: rgb(212,2,99);
+    clear: both;
+    float: right;
+    background-color: white;
+    font-size: 1.0em;
+    font-family: Shabnam;
+    border-radius: 23px;
+    height: 31px;
+    width: 133px;
+    padding-top: 5;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 0px;
+    padding-right: 0px;
+    border-left-width: 1px;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    text-align: center;
+    border: 1px solid;
+    transition: 0.3s;
+    outline: none;
+    margin-top : 15px;
+    margin-right: 15px;
+}
+.food_card_button:hover{
+    background-color: rgb(241, 226, 232);
+    cursor: pointer;
+}
+#food_card_name{
+    float: right;
+    margin-right: 20px;
+    margin-top: 10px;
+    font-size: 1.7em;
+    font-weight: 700;
+}
+#food_card_price{
+    float: left;
+}
+#food_card_price_div{
+    
+
+}
+#food_card_descp{
+    float: right;
+    clear: both;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+#food_card_toman{
+    float: left;
+    margin-top:21px;
+    margin-left: 15px;
+}
+#food_card_name_div{
+    float: right;
+}
+.food_card_name_price_div{
+    height: 40px;
+    margin-top: 20px;
+}
+.link_restaurant_large_card{
+    text-decoration: none;
 }
