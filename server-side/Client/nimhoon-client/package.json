@@ -8,7 +8,9 @@
     "react-dom": "^16.8.6",
     "react-dropdown-input": "^0.1.11",
     "react-scripts": "3.0.1",
-    "react-select": "^3.0.4"
+    "react-select": "^3.0.4",
+    "react-sticky": "^6.0.3",
+    "react-tabs": "^3.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

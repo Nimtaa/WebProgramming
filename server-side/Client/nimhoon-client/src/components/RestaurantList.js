@@ -81,14 +81,14 @@ class  RestaurantList extends Component {
                    // this.setState({ numberOfResults: this.state.numberOfResults+1})
             this.setState({
                 RestaurantComponents : [this.state.RestaurantComponents,<RestaurantCard name ={item.name} address={item.address.addressLine}
-                    rate = {item.rate} food = {item.categories} close={false}/>],
+                    rate = {item.averageRate} food = {item.categories} close={false}/>],
                     numberOfResults : this.state.numberOfResults + 1
             })
                 }
             else
             this.setState({
                 ClosedRestaurantsComponents : [this.state.ClosedRestaurantsComponents,<RestaurantCard name ={item.name} address={item.address.addressLine}
-                    rate = {item.rate} food = {item.categories} close={true}/>]
+                    rate = {item.averageRate} food = {item.categories} close={true}/>]
             })
             });
     }
@@ -97,6 +97,7 @@ class  RestaurantList extends Component {
         this.setState({FoodFilter : <FoodFilter FoodSetName={this.state.categorySet}
              RestaurantListFunction = {this.foodFilterParent}/>})
     }
+    
     componentDidMount(){ 
         axios.get('http://127.0.0.1:9000/restaurants?area=k')
         .then((response) =>

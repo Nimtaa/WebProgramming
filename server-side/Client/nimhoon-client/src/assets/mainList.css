@@ -236,7 +236,7 @@
     border-width: 1px;
     font-size: 0.8em;
     height: 300px;
-    width: 50%;
+    width: 55%;
     background-color: #fff;
     text-align: center;
     box-shadow: -3px 3px 9px -5px;
@@ -252,11 +252,11 @@
 .RestaurantCardLarge_logo{
     width: 84px;
     height: 84px;
-    margin-top: 25px;
+    margin-top: 3px;
     border: 2px;
     box-shadow:0px 0px 20px 0px #cfcfcf85;
-    padding-right: 6.5px;
-
+    border: 1px solid #d8d9da;
+    border-radius: 5px;
 }
 .food_card_div{
     font-family: Shabnam;
@@ -265,8 +265,8 @@
     border-width: 1px;
     font-size: 0.8em;
     height: 215px;
-    width: 35%;
-    height: 175px;
+    width: 33%;
+    height: 147px;
     background-color: #fff;
     text-align: center;
     box-shadow: -3px 3px 9px -5px;
@@ -290,11 +290,11 @@
     clear: both;
     float: right;
     background-color: white;
-    font-size: 1.0em;
+    font-size: 0.8em;
     font-family: Shabnam;
     border-radius: 23px;
-    height: 31px;
-    width: 133px;
+    height: 28px;
+    width: 120px;
     padding-top: 5;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -308,7 +308,7 @@
     border: 1px solid;
     transition: 0.3s;
     outline: none;
-    margin-top : 15px;
+    margin-top : 5px;
     margin-right: 15px;
 }
 .food_card_button:hover{
@@ -332,8 +332,11 @@
 #food_card_descp{
     float: right;
     clear: both;
-    margin-top: 10px;
-    margin-right: 20px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    margin-right:24px;
+    font-size: 1em;
+    color: #8f8e8e;
 }
 #food_card_toman{
     float: left;
@@ -349,4 +352,100 @@
 }
 .link_restaurant_large_card{
     text-decoration: none;
+    color : #a0a0a0;
+}
+.link_restaurant_large_card:hover{
+    color: black;
+}
+#RestaurantCardLarge_food{
+    color: #000000;
+    font-weight: 600;
+    font-size: 1.1em;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: center;
+    flex-direction: row-reverse;
+    list-style: none;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-top: 3px;
+    margin-bottom : 0px;
+    padding-right: 40px;
+}
+
+#RestaurantCardLarge_name{
+    font-size: 1.5em;
+    margin-bottom: 5;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+#RestaurantCardLarge_name h2{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.orange_rating_large{
+    color:rgb(249,185,43);
+    font-weight: 300;
+    font-size : 1.5em;
+    margin-top : 2px;
+    
+}
+.tag_list_restaurantCardLarge{
+    position: -webkit-sticky;
+    position: sticky;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: center;
+    flex-direction: row-reverse;
+    list-style: none;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-top : 25px;
+}
+.tag_list_restaurantCardLarge::before{
+    /* background-image: radial-gradient(circle at 51% 0,#f3f3f3,#e9e9e9 62%,hsla(0,0%,89%,0));
+    width: 10px;
+    height: 1.6px;
+    height: .1rem;
+    left: 0; */
+    background-color: red;
+    height : 1.5px;
+    width : 20px;
+} 
+#RestaurantCardLarge_food{
+
+}
+#RestaurantCardLarge_address{
+    margin-top: 0px;
+}
+.food_set_sidebar_restaurant_page{
+    list-style: none;
+    font-family: Shabnam;
+    float: right;
+    text-align: right;
+}
+.food_set_sidebar_restaurant_page ::before{
+    background-color: red;
+    height : 1.5px;
+    width : 20px;
+}
+.OpenRestaurants_copy{
+      /* margin-right: 300px; */
+      margin-right: 80px;
+      /* margin-top: 80px; */
+      /* display: grid;
+      grid-template-columns: repeat(3,320px);
+      float: right; */
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: flex-start;
+      flex-direction: row-reverse;
+      
 }
