@@ -19,8 +19,9 @@ exports.list = function(req,res,next){
                     if(err) throw err;
                     var category_id = docs.map(function(doc){return doc._id});
                     console.log("category_id: ",category_id);
-                    Restaurant.find({ '$and':[{'address': addressOfRestaurant_id}, {'categories' : {'$in': category_id}}]}
-                    ,function(err, docs) {
+                    Restaurant.find({ '$and':[{'address': addressOfRestaurant_id}, {'categories' : {'$in': category_id}}]})
+                    .populate('categories').exec(
+                    function(err, docs) {
                         if(err) throw err;
                         res.setHeader("Access-Control-Allow-Origin", '*');
                         res.json(docs);
@@ -46,7 +47,9 @@ exports.list = function(req,res,next){
                 //     db.close();
                 // });
 
-                Restaurant.find({'address': addressOfRestaurant_id}).populate('address',['addressLine'])
+                Restaurant.find({'address': addressOfRestaurant_id})
+                .populate('address',['addressLine'])
+                .populate('categories')
                 .exec(function(err,docs){
                     if(err) throw err;
                     console.log(docs);
@@ -61,11 +64,14 @@ exports.list = function(req,res,next){
 };
 exports.listWithId = function (req,res,next){
     var id = req.params.id;
+    console.log(req.params);
     MongoClient.connect(url,  {useNewUrlParser: true},function(err, db) {
         if (err) throw err;
         var query = { '_id': id };
         const dbo = db.db('nimhoon')
-        Restaurant.find(query).populate('foods',['name','price','description','foodSet'])
+        Restaurant.find(query)
+        .populate('foods',['name','price','description','foodSet'])
+        .populate('address',['area','city','addressLine'])
         .exec(function(err, result) {
             if (err) throw err;  
             res.setHeader("Access-Control-Allow-Origin", '*');
