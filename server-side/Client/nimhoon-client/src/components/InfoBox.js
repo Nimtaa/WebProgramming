@@ -43,7 +43,7 @@ class  InfoBox extends Component {
         }
         return (
             <React.Fragment>
-           
+           {/* props : name, address, openingTime, closingTime */}
            <div className = "info_box_div">
                
                <div className="info_header">    
@@ -51,12 +51,12 @@ class  InfoBox extends Component {
                </div>
                <div className="inner_information_box">
                 <div >
-                    <h4 style={h3_style}>نام رستوران</h4>    
+                    <h4 style={h3_style}>{this.props.name}</h4>    
                     <div>
                     <span>
                     <p style = {address_style}>
                         <FaMapMarkerAlt style={icon_style}/>
-                        آدرس شسیشسیشسشیشس
+                       {this.props.address}
                     </p>
                     </span>
                     </div>
@@ -68,11 +68,17 @@ class  InfoBox extends Component {
                             <ul className="infobox_timing_ul">
                                 <li className = "infobox_timing_li">
                                     شنبه تا پنجشنبه
-                                    <span style={time_in_li_style}>از۱۱ تا ۱۲</span>
+                                    <span style={time_in_li_style}> &nbsp;{this.props.closingTime}</span>
+                                    <span style={time_in_li_style}> &nbsp;تا</span>
+                                    <span style={time_in_li_style}>&nbsp;{this.props.openingTime}</span>
+                                    <span style={time_in_li_style}>&nbsp;از</span>
                                     </li>
 
                                 <li className = "infobox_timing_li">جمعه
-                                <span style = {time_in_li_style}>از۱۱ تا ۱۲</span>
+                                <span style={time_in_li_style}> &nbsp;{this.props.closingTime}</span>
+                                    <span style={time_in_li_style}> &nbsp;تا</span>
+                                    <span style={time_in_li_style}>&nbsp;{this.props.openingTime}</span>
+                                    <span style={time_in_li_style}>&nbsp;از</span>
                                 </li>
                             </ul>
                         </div>

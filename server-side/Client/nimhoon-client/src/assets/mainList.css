@@ -388,7 +388,7 @@
 }
 
 .orange_rating_large{
-    color:rgb(249,185,43);
+    color:rgb(255,195,0);
     font-weight: 300;
     font-size : 1.5em;
     margin-top : 2px;
@@ -438,7 +438,7 @@
     display: block;
     height: 10px;
     border: 0;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid rgb(230, 230, 230);
     margin: 1em 0;
     padding: 0;
     content: '';
@@ -489,7 +489,7 @@
     display: block;
     height: 1px;
     border: 0;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid rgb(230, 230, 230);
     margin: 1em 0;
     padding: 0;
     content: '';
@@ -516,4 +516,67 @@
     font-family: Shabnam;
     font-size: 0.75rem;
     width : 50%;
+}
+.stars_list_comment_summary{
+    display: inline-flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    list-style: none;
+    flex-wrap: wrap;
+    padding-left: 4px;
+    padding-right: 4px;
+    list-style: none;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+.orange_rating_large_comment_summary{
+    color:rgb(255,195,0);
+    font-weight: 600;
+    font-size : 1.5em;
+    margin-top : 2px;
+    text-align: center;
+    
+}
+.orange_rating_large_comment_summary::after{
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid rgb(230, 230, 230);
+    margin: 1em 0;
+    padding: 0;
+    content: '';
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.progress_comment_summary_div{
+    display: flex;
+    justify-content: space-between;
+    direction: ltr;
+    width : 50%;
+    margin : auto;
+    font-family: Shabnam;
+
+}
+.progress_rc_div{
+    margin-top: 3%;
+    width: 60%;
+}
+.progress_comment_summary_line{
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid rgb(230, 230, 230);
+    margin: 1em 0;
+    padding: 0;
+    content: '';
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }

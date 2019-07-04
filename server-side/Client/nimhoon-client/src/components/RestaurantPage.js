@@ -8,6 +8,7 @@ import RestaurantCardLarge from './RestaurantCardLarge';
 import FoodSetSidebar from './FoodSetSidebar';
 import FoodSection from './FoodSection';
 import InfoBox from './InfoBox';
+import CommentSummary from './CommentSummary';
 
 const axios = require('axios');
 
@@ -86,7 +87,12 @@ class  RestaurantPage extends Component {
             </div>          
 
             {/* Here we should put the info box */}
-            <InfoBox />
+            <InfoBox name={this.state.RestaurantData[0].name} address = {address}
+            openingTime = {this.state.RestaurantData[0].openingTime}
+            closingTime = {this.state.RestaurantData[0].closingTime} />
+
+            {/* Here we should put the comment summary */}
+            <CommentSummary />
             </React.Fragment>
        );
         }else{
