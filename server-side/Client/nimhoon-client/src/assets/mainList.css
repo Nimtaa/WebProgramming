@@ -493,7 +493,7 @@
     margin: 1em 0;
     padding: 0;
     content: '';
-    width: 65%;
+    width: 92%;
 }
 .info_header{
     margin-right: 1em;
@@ -598,4 +598,27 @@
     width: 60%;
     margin-left: auto;
     margin-right: auto;
+}
+
+.orange_rating_large_commentCard{
+    color:rgb(255,195,0);
+    font-weight: 300;
+    font-size : 1em;
+    margin-top : 2px;
+    float: left;
+    direction: ltr;
+    margin-left: 4rem;
+}
+.stars_list_commentCatd{
+    display: inline-flex;
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+    list-style: none;
+    flex-wrap: wrap;
+    padding-left: 4px;
+    list-style: none;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-bottom: 0px;
+    margin-top : 0px;
 }

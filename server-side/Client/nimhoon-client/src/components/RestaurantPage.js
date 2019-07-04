@@ -10,6 +10,7 @@ import FoodSection from './FoodSection';
 import InfoBox from './InfoBox';
 import CommentSummary from './CommentSummary';
 import CommentCard from './CommentCard';
+import Footer from './Footer';
 
 const axios = require('axios');
 
@@ -54,7 +55,6 @@ class  RestaurantPage extends Component {
                 this.FoodListHandler();
             });
           })
-          //.then(response => this.setState({ vehicles: response.data }))
           .catch(error => console.log(error));
     }
     render() {
@@ -113,10 +113,12 @@ class  RestaurantPage extends Component {
             <div className="AllComments">
                {
                 this.state.RestaurantComments.map((c,i)=>{
-                return <CommentCard />;
+                    console.log(new Date(c.created_at).getDay())
+                return <CommentCard author = {c.author} rate={c.quality} text = {c.text} date={c.created_at}/>;
                 })}
             </div>
 
+            <Footer/>
             </React.Fragment>
        );
         }else{
