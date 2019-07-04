@@ -7,6 +7,7 @@ import '../assets/mainList.css';
 import RestaurantCardLarge from './RestaurantCardLarge';
 import FoodSetSidebar from './FoodSetSidebar';
 import FoodSection from './FoodSection';
+import InfoBox from './InfoBox';
 
 const axios = require('axios');
 
@@ -70,7 +71,7 @@ class  RestaurantPage extends Component {
             address={address} 
             food={this.state.RestaurantData[0].categories} />
              {/* This is the sidebar foodset */}
-             <div>
+             <div className="food_set_sidebar_restaurant_page_div">
                 <ul className="food_set_sidebar_restaurant_page">
                 <FoodSetSidebar foodSet={Array.from(this.state.FoodSet)}/>
                 </ul>
@@ -84,7 +85,8 @@ class  RestaurantPage extends Component {
                 })}
             </div>          
 
-
+            {/* Here we should put the info box */}
+            <InfoBox />
             </React.Fragment>
        );
         }else{

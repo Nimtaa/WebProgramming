@@ -28,7 +28,7 @@ class  FoodSection extends Component {
               {/* For each food set return div consists of food cards from that foodset */}
               <div style={div_style}> 
                 <div>
-                  <h2 style = {header_style} id = {this.props.foodSet}>{this.props.foodSet}</h2>
+                  <h3 style = {header_style} id = {this.props.foodSet}>{this.props.foodSet}</h3>
                   </div>
                   <div className="OpenRestaurants_copy">
                   {this.props.foods.map((f,i) =>{
