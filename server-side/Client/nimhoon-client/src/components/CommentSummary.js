@@ -61,35 +61,51 @@ class  CommentSummary extends Component {
                         {/* Progress bar  */}
                         <div className="progress_comment_summary_div">
                             <h4 style={h4_style}>کیفیت غذا</h4>
-                            <h5 style = {rate_number_2_style}>4.4</h5>
-                            <div className="progress_rc_div">
                             
-                                <Line percent={10} strokeWidth = "4" trailWidth = "4" strokeColor="#ffc300" />
-                            </div>
+                            <div className="test_out">
+                                <div className="test_in">
+                                    <h5 style = {rate_number_2_style}>4.4</h5>
+                                </div>
+                                    <div className="progress_rc_div">
+                                    <Line percent={10} strokeWidth = "4" trailWidth = "4" strokeColor="#ffc300" />
+                                    </div>
+                                </div>
                         </div>
                         <div className="progress_comment_summary_line"></div>
                         <div className="progress_comment_summary_div">
                             <h4 style={h4_style}>کیفیت بسته‌بندی</h4>
-                            <h5 style = {rate_number_2_style}>4.4</h5>
-                            <div className="progress_rc_div">
-                                <Line percent={10} strokeWidth = "4" trailWidth = "4" strokeColor="#ffc300" />
-                            </div>
+                            <div className="test_out">
+                                <div className="test_in">
+                                    <h5 style = {rate_number_2_style}>4.4</h5>
+                                </div>
+                                    <div className="progress_rc_div">
+                                    <Line percent={10} strokeWidth = "4" trailWidth = "4" strokeColor="#ffc300" />
+                                    </div>
+                                </div>
                         </div>
                         <div className="progress_comment_summary_line"></div>
                         <div className="progress_comment_summary_div">
                             <h4 style={h4_style}>سرعت ارسال پیک</h4>
-                            <h5 style = {rate_number_2_style}>4.4</h5>
-                            <div className="progress_rc_div">
-                                <Line percent={10} strokeWidth = "4" trailWidth = "4" strokeColor="#ffc300" />
-                            </div>
+                            <div className="test_out">
+                                <div className="test_in">
+                                    <h5 style = {rate_number_2_style}>4.4</h5>
+                                </div>
+                                    <div className="progress_rc_div">
+                                    <Line percent={10} strokeWidth = "4" trailWidth = "4" strokeColor="#ffc300" />
+                                    </div>
+                                </div>
                         </div>
                         <div className="progress_comment_summary_line"></div>
                         <div className="progress_comment_summary_div">
                             <h4 style={h4_style}>برخورد پیک</h4>
-                            <h5 style = {rate_number_2_style}>4.4</h5>
-                            <div className="progress_rc_div">
-                                <Line percent={10} strokeWidth = "4" trailWidth = "4" strokeColor="#ffc300" />
-                            </div>
+                            <div className="test_out">
+                                <div className="test_in">
+                                    <h5 style = {rate_number_2_style}>4.4</h5>
+                                </div>
+                                    <div className="progress_rc_div">
+                                    <Line percent={10} strokeWidth = "4" trailWidth = "4" strokeColor="#ffc300" />
+                                    </div>
+                                </div>
                         </div>
                     </div>
                 </div>
