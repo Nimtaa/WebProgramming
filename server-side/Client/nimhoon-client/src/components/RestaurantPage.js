@@ -9,6 +9,7 @@ import FoodSetSidebar from './FoodSetSidebar';
 import FoodSection from './FoodSection';
 import InfoBox from './InfoBox';
 import CommentSummary from './CommentSummary';
+import CommentCard from './CommentCard';
 
 const axios = require('axios');
 
@@ -20,7 +21,8 @@ class  RestaurantPage extends Component {
            ListOfFood : [],
            RestaurantData :{},
            FoodComponents :[],
-           FoodSet : []
+           FoodSet : [],
+           RestaurantComments : []
         };
         // this.foodFilterParent = this.foodFilterParent.bind(this);
         // this.RestaurantHandler = this.RestaurantHandler.bind(this);
@@ -43,27 +45,34 @@ class  RestaurantPage extends Component {
     }
     componentDidMount () {
         var id = this.props.id;
-        axios.get('http://127.0.0.1:9000/restaurants/'+id).then((response) => {
-            // handle success
-            this.setState({RestaurantData : response.data},()=>{
-               this.FoodListHandler();
+          
+        axios.all([
+            axios.get('http://127.0.0.1:9000/restaurants/'+id),
+            axios.get('http://127.0.0.1:9000/restaurants/'+id+'/comments')
+        ]).then(([res, com]) => {
+            this.setState({ RestaurantData: res.data , RestaurantComments : com.data},()=>{
+                this.FoodListHandler();
             });
           })
-          .catch(function (error) {
-            // handle error
-            console.log(error);
-          })
-          .finally(function () {
-            // always executed
-          });
+          //.then(response => this.setState({ vehicles: response.data }))
+          .catch(error => console.log(error));
     }
     render() {
         console.log(this.state.ListOfFood);
-        if(this.state.RestaurantData[0] != undefined && this.state.FoodSet!=undefined) { 
+        if(this.state.RestaurantData[0] != undefined && this.state.FoodSet!=undefined
+            && this.state.RestaurantComments!=undefined) { 
+
             var address = this.state.RestaurantData[0].address.city + "، " +this.state.RestaurantData[0].address.area +
             "، " +this.state.RestaurantData[0].address.addressLine;
 
         console.log("FoodSet : ",this.state.FoodSet);
+        console.log("Comments :", this.state.RestaurantComments);
+        
+        
+        
+        // this.state.RestaurantComments.map((c,i)=>{
+        //     comments.push( <CommentCard />);
+        // })
         return (    
             // Restaurant Large Card
             <React.Fragment>
@@ -92,7 +101,22 @@ class  RestaurantPage extends Component {
             closingTime = {this.state.RestaurantData[0].closingTime} />
 
             {/* Here we should put the comment summary */}
-            <CommentSummary />
+            <CommentSummary name = {this.state.RestaurantData[0].name}
+            rate = {this.state.RestaurantData[0].averageRate}
+            quality = {this.state.RestaurantComments[0].quality}
+            packaging = {this.state.RestaurantComments[0].packaging}
+            delivery = {this.state.RestaurantComments[0].deliveryTime}/>
+            
+            {/* Here we should put the comments from mellat */}
+            {/* <CommentCard comments = {this.state.RestaurantComments} /> */}
+           
+            <div className="AllComments">
+               {
+                this.state.RestaurantComments.map((c,i)=>{
+                return <CommentCard />;
+                })}
+            </div>
+
             </React.Fragment>
        );
         }else{

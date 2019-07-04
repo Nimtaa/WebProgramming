@@ -42,20 +42,20 @@ class  CommentSummary extends Component {
         }
         return (
             <React.Fragment>
-           {/* props : name, */}
+           {/* props : name, rate, quality*/}
            <div className = "info_box_div">
                <div className="info_header">    
-                   <h3 style ={h3_style}> نظرات کاربران در مورد رستوران فلان</h3> 
+                   <h3 style ={h3_style}> نظرات کاربران در مورد رستوران {this.props.name}</h3> 
                </div>
-               <div className="inner_information_box">
+               <div className="inner_comment_summary_box">
                     <div>
                         <p style={desc_style}>شما هم می‌توانید بعد از سفارش از این رستوران، نظر خود را درباره‌ی این رستوران ثبت کنید.</p>    
                         <div>
                             <div className="orange_rating_large_comment_summary">
                                 <ul className = "stars_list_comment_summary">
-                                    <Stars rate = {4.4} />
+                                    <Stars rate = {this.props.rate} />
                                 </ul>
-                                <h5 style = {rate_number_style}>4.4</h5>
+                                <h5 style = {rate_number_style}>{this.props.rate}</h5>
                             </div>
                         </div>
                         {/* Progress bar  */}
@@ -64,10 +64,10 @@ class  CommentSummary extends Component {
                             
                             <div className="test_out">
                                 <div className="test_in">
-                                    <h5 style = {rate_number_2_style}>4.4</h5>
+                                    <h5 style = {rate_number_2_style}>{this.props.quality}</h5>
                                 </div>
                                     <div className="progress_rc_div">
-                                    <Line percent={10} strokeWidth = "4" trailWidth = "4" strokeColor="#ffc300" />
+                                    <Line percent={(this.props.quality)/5 * 100} strokeWidth = "4" trailWidth = "4" strokeColor="#ffc300" />
                                     </div>
                                 </div>
                         </div>
@@ -76,10 +76,10 @@ class  CommentSummary extends Component {
                             <h4 style={h4_style}>کیفیت بسته‌بندی</h4>
                             <div className="test_out">
                                 <div className="test_in">
-                                    <h5 style = {rate_number_2_style}>4.4</h5>
+                                    <h5 style = {rate_number_2_style}>{this.props.packaging}</h5>
                                 </div>
                                     <div className="progress_rc_div">
-                                    <Line percent={10} strokeWidth = "4" trailWidth = "4" strokeColor="#ffc300" />
+                                    <Line percent={(this.props.packaging/5)* 100} strokeWidth = "4" trailWidth = "4" strokeColor="#ffc300" />
                                     </div>
                                 </div>
                         </div>
@@ -88,10 +88,10 @@ class  CommentSummary extends Component {
                             <h4 style={h4_style}>سرعت ارسال پیک</h4>
                             <div className="test_out">
                                 <div className="test_in">
-                                    <h5 style = {rate_number_2_style}>4.4</h5>
+                                    <h5 style = {rate_number_2_style}>{this.props.delivery}</h5>
                                 </div>
                                     <div className="progress_rc_div">
-                                    <Line percent={10} strokeWidth = "4" trailWidth = "4" strokeColor="#ffc300" />
+                                    <Line percent={(this.props.delivery/5)*100} strokeWidth = "4" trailWidth = "4" strokeColor="#ffc300" />
                                     </div>
                                 </div>
                         </div>
@@ -100,10 +100,10 @@ class  CommentSummary extends Component {
                             <h4 style={h4_style}>برخورد پیک</h4>
                             <div className="test_out">
                                 <div className="test_in">
-                                    <h5 style = {rate_number_2_style}>4.4</h5>
+                                    <h5 style = {rate_number_2_style}>{this.props.delivery}</h5>
                                 </div>
                                     <div className="progress_rc_div">
-                                    <Line percent={10} strokeWidth = "4" trailWidth = "4" strokeColor="#ffc300" />
+                                    <Line percent={(this.props.delivery/5)*100} strokeWidth = "4" trailWidth = "4" strokeColor="#ffc300" />
                                     </div>
                                 </div>
                         </div>
