@@ -27,6 +27,7 @@ class  RestaurantList extends Component {
         this.RestaurantHandler = this.RestaurantHandler.bind(this);
         this.FoodFilterHandler = this.FoodFilterHandler.bind(this);
         this.categoryQueryHandler = this.categoryQueryHandler.bind(this);
+        this.clickHandler = this.clickHandler.bind(this);
     }
   
     //Listen on foodFilter change state to update filter
@@ -48,7 +49,7 @@ class  RestaurantList extends Component {
     }
     categoryQueryHandler(){
         console.log("This is running.!")
-        axios.get('http://127.0.0.1:9000/restaurants?area=k'+this.state.categoryQuery)
+        axios.get('http://127.0.0.1:9000/restaurants?area=سعادت'+this.state.categoryQuery)
         .then((response) =>
                 this.setState({ListOfRestaurants: response.data},function(data){
                     this.RestaurantHandler();
@@ -73,6 +74,9 @@ class  RestaurantList extends Component {
             return false;
         }
     }
+    clickHandler(event){
+        this.props.fatherHandler(event);
+    }
     RestaurantHandler(){
         console.log("this is res handle");
         this.state.ListOfRestaurants.map((item, i) => {
@@ -81,14 +85,16 @@ class  RestaurantList extends Component {
                    // this.setState({ numberOfResults: this.state.numberOfResults+1})
             this.setState({
                 RestaurantComponents : [this.state.RestaurantComponents,<RestaurantCard name ={item.name} address={item.address.addressLine}
-                    rate = {item.averageRate} food = {item.categories} close={false}/>],
+                    rate = {item.averageRate} food = {item.categories} close={false} id={item._id}
+                    clickHandler ={this.clickHandler}/>],
                     numberOfResults : this.state.numberOfResults + 1
             })
                 }
             else
             this.setState({
                 ClosedRestaurantsComponents : [this.state.ClosedRestaurantsComponents,<RestaurantCard name ={item.name} address={item.address.addressLine}
-                    rate = {item.averageRate} food = {item.categories} close={true}/>]
+                    rate = {item.averageRate} food = {item.categories} close={true} id={item._id}
+                    clickHandler ={this.clickHandler}/>]
             })
             });
     }
@@ -99,7 +105,7 @@ class  RestaurantList extends Component {
     }
     
     componentDidMount(){ 
-        axios.get('http://127.0.0.1:9000/restaurants?area=k')
+        axios.get('http://127.0.0.1:9000/restaurants?area=سعادت')
         .then((response) =>
             this.setState({ListOfRestaurants: response.data})
         ).then(()=>{
@@ -132,7 +138,7 @@ class  RestaurantList extends Component {
             //         rate = {item.rate} food = {item.food} close={true}/>);
             //     });
             console.log(this.state.ClosedRestaurantsComponents);
-            console.log(this.state.RestaurantComponents);
+            console.log("Rest",this.state.ListOfRestaurants);
             let closedTitle ;
             if(this.state.ClosedRestaurantsComponents.length){
                 closedTitle = <p className="ClosedTitle">رستوران‌های بسته</p>

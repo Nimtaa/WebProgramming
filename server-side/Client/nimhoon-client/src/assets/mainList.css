@@ -222,7 +222,7 @@
     height: 9rem;
     background-position: 50%;
     background-repeat: no-repeat;
-    background-image: url(/mocks/restaurant_search_banner.png);
+    background-image: url("/mocks/restaurant_search_banner.png");
 }
 
 
@@ -235,7 +235,7 @@
     font-family: Shabnam;
     border-width: 1px;
     font-size: 0.8em;
-    height: 300px;
+    height: 30%;
     width: 55%;
     background-color: #fff;
     text-align: center;
@@ -352,6 +352,7 @@
 }
 .link_restaurant_large_card{
     text-decoration: none;
+    font-size: 1rem;
     color : #a0a0a0;
 }
 .link_restaurant_large_card:hover{
@@ -395,19 +396,20 @@
     
 }
 .tag_list_restaurantCardLarge{
-    position: -webkit-sticky;
-    position: sticky;
+    justify-content: space-around;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: start;
     -ms-flex-pack: start;
-    justify-content: center;
     flex-direction: row-reverse;
     list-style: none;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     margin-top : 25px;
+}
+.tag_list_restaurantCardLarge > li{
+    margin-bottom: 1%;
 }
 .tag_list_restaurantCardLarge::before{
     /* background-image: radial-gradient(circle at 51% 0,#f3f3f3,#e9e9e9 62%,hsla(0,0%,89%,0));
@@ -419,6 +421,14 @@
     height : 1.5px;
     width : 20px;
 } 
+.card_large_background_container{
+    background-image: url("/mocks/restaurant_page.jpg"); 
+    
+}
+
+.card_large_banner{
+   
+}
 #RestaurantCardLarge_food{
 
 }

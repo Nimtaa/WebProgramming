@@ -17,28 +17,53 @@ import Stars from './components/Stars';
 class App extends React.Component { 
   constructor(props) {
     super(props);
-    this.state = {query: true};
-  }
+    this.state = {
+      query: true,
+      renderRestaurantPage : false,
+      restaurantClickedId : '',
+      area : ''
+    };
 
+    this.RestaurantPageHandler = this.RestaurantPageHandler.bind(this);
+    this.RestaurantListHandler = this.RestaurantListHandler.bind(this);
+  }
+  RestaurantPageHandler (event){
+    if(event.target.id!=undefined)
+    this.setState({renderRestaurantPage : true , restaurantClickedId : event.target.id});
+  }
+  RestaurantListHandler(event){
+    if(event.target.id!=undefined)
+    console.log("my id: ",event.target.id);
+  }
   render(){
    
     // if(this.state.query){
-      return (
-        // <React.Fragment>
-        // <div className="ListApp">  
-        //     <Header/>
-        //     <RestaurantList/>
-        //     <Footer/>
-        // </div>
-        // </React.Fragment>
-        // <RestaurantList/>
-        
+      console.log(this.state.renderRestaurantPage);
+      console.log("ID: ", this.state.restaurantClickedId);
+      if(this.state.renderRestaurantPage==true && this.state.restaurantClickedId!=null){
+        return ( <RestaurantPage id={this.state.restaurantClickedId}/>);
+      }else{
+        return ( 
 
-        <React.Fragment>
-          {/* <FoodCard name={'قیمه'} price= {'1200'} description={'خوب درست شده'}/>  */}
-          <RestaurantPage id={'5d1b64b6e816db12f85c59c0'}/>
-        </React.Fragment>
-        );    
+          // <React.Fragment>
+          // <div className="ListApp">  
+          //     <Header/>
+          //     <RestaurantList/>
+          //     <Footer/>
+          // </div>
+          // </React.Fragment>
+          // <React.Fragment>
+          //   <Header/>
+          //   <Search fatherHandler = {this.RestaurantListHandler}/>
+          //   <Footer/>
+          // </React.Fragment>
+          
+        
+          <RestaurantList fatherHandler = {this.RestaurantPageHandler}/>
+      
+          );    
+      }
+    
   }
 }
 

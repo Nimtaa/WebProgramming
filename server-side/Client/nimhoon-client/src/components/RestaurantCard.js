@@ -8,7 +8,7 @@ let foodCategories =[];
 function RestaurantCard(props) {
     if(!props.close){
    return (
-        <div className="top_restaurant_div">
+        <div className="top_restaurant_div" onClick={props.clickHandler}>
             <img className="top_restaurant_logo" 
             src = {'/mocks/Restaurants/' + props.name + '.jpeg'}/>
         <div>
@@ -28,7 +28,7 @@ function RestaurantCard(props) {
         </ul>
         </span>
         <p id="top_restaurant_address">{props.address}</p>
-        <button className="top_restaurant_button">شروع سفارش</button>
+        <button id={props.id} onClick={props.clickHandler} className="top_restaurant_button">شروع سفارش</button>
         </div>
    );
     }
@@ -55,7 +55,7 @@ function RestaurantCard(props) {
         </ul>
         </span>
         <p id="top_restaurant_address">{props.address}</p>
-        <button className="top_restaurant_button">شروع سفارش</button>
+        <button id={props.id} onClick={props.clickHandler} className="top_restaurant_button">شروع سفارش</button>
             </div>
        );
     }

@@ -11,6 +11,7 @@ import InfoBox from './InfoBox';
 import CommentSummary from './CommentSummary';
 import CommentCard from './CommentCard';
 import Footer from './Footer';
+import Header from './Header';
 
 const axios = require('axios');
 
@@ -68,7 +69,16 @@ class  RestaurantPage extends Component {
         console.log("FoodSet : ",this.state.FoodSet);
         console.log("Comments :", this.state.RestaurantComments);
         
-        
+        var commentSummary = null;
+        if(this.state.RestaurantComments.length){
+            commentSummary = <div id="comments">
+            <CommentSummary name = {this.state.RestaurantData[0].name}
+            rate = {this.state.RestaurantData[0].averageRate}
+            quality = {this.state.RestaurantComments[0].quality}
+            packaging = {this.state.RestaurantComments[0].packaging}
+            delivery = {this.state.RestaurantComments[0].deliveryTime}/>
+            </div>
+        }
         
         // this.state.RestaurantComments.map((c,i)=>{
         //     comments.push( <CommentCard />);
@@ -76,6 +86,8 @@ class  RestaurantPage extends Component {
         return (    
             // Restaurant Large Card
             <React.Fragment>
+            <Header/>
+            <div className="card_large_background_container">
             <RestaurantCardLarge name={this.state.RestaurantData[0].name} 
             rate={this.state.RestaurantData[0].averageRate} 
             address={address} 
@@ -86,9 +98,10 @@ class  RestaurantPage extends Component {
                 <FoodSetSidebar foodSet={Array.from(this.state.FoodSet)}/>
                 </ul>
             </div>
+            </div>
 
             {/* Here we should put the foods */}
-            <div className= "AllRestaurants">
+            <div id="menu" className= "AllRestaurants">
                 {Array.from(this.state.FoodSet).map((f) => {
                   return  <FoodSection foodSet={f} 
                      foods = {this.state.RestaurantData[0].foods}/>
@@ -96,20 +109,28 @@ class  RestaurantPage extends Component {
             </div>          
 
             {/* Here we should put the info box */}
+            <div id ="information">
             <InfoBox name={this.state.RestaurantData[0].name} address = {address}
             openingTime = {this.state.RestaurantData[0].openingTime}
             closingTime = {this.state.RestaurantData[0].closingTime} />
+            </div>
 
             {/* Here we should put the comment summary */}
+            {commentSummary}
+            {/* return  <div id="comments">
             <CommentSummary name = {this.state.RestaurantData[0].name}
             rate = {this.state.RestaurantData[0].averageRate}
             quality = {this.state.RestaurantComments[0].quality}
             packaging = {this.state.RestaurantComments[0].packaging}
             delivery = {this.state.RestaurantComments[0].deliveryTime}/>
+            </div> */}
             
+            
+            
+           
             {/* Here we should put the comments from mellat */}
             {/* <CommentCard comments = {this.state.RestaurantComments} /> */}
-           
+
             <div className="AllComments">
                {
                 this.state.RestaurantComments.map((c,i)=>{
