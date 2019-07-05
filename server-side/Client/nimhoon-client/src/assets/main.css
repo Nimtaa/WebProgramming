@@ -112,7 +112,7 @@
     box-shadow: -3px 3px 9px -5px;
     border-radius: 8px;
     perspective: 1px;
-    overflow: hidden;
+    /* overflow: hidden; */
     direction: rtl;
 }
 .city_select {
@@ -149,6 +149,8 @@
     border-top-right-radius: 0.7rem;
     border-bottom-right-radius: 0.7rem;
     border-bottom-left-radius: 0.7rem;
+    display: flex;
+    font-family: Shabnam;
 }
 .city_select_element{
     font-family: Shabnam;
@@ -702,4 +704,33 @@
 #top_restaurant_address{
     margin-bottom : 12px;
     margin-top: 0px;
+}
+.react-dropdown-select-item-selected * {
+    background: #c9c9c9;
+    color: #fff;
+    border-bottom: 1px solid #fff;
+    font-size: 2em;
+}
+.react-dropdown-select-item::after{
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid rgb(230, 230, 230);
+    margin: 1em 0;
+    padding: 0;
+    content: '';
+    margin-top: 0px;
+    margin-bottom: 2px;
+    width: 100%;
+} 
+.select_react_dropdown *{
+    background: #fff;
+    border-bottom: 1px solid #fff;
+    font-size: 1.3rem;
+    font-family: Shabnam;
+    direction: rtl;
+    
+}
+.select_react_dropdown *:hover{
+    /* background-color: rgb(66, 66, 66); */
 }

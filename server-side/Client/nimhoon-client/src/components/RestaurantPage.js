@@ -26,10 +26,6 @@ class  RestaurantPage extends Component {
            FoodSet : [],
            RestaurantComments : []
         };
-        // this.foodFilterParent = this.foodFilterParent.bind(this);
-        // this.RestaurantHandler = this.RestaurantHandler.bind(this);
-        // this.FoodFilterHandler = this.FoodFilterHandler.bind(this);
-        // this.categoryQueryHandler = this.categoryQueryHandler.bind(this);
         this.FoodListHandler = this.FoodListHandler.bind(this);
         this.CreateFoodSetSidebar = this.CreateFoodSetSidebar.bind(this);
     }
@@ -79,15 +75,13 @@ class  RestaurantPage extends Component {
             delivery = {this.state.RestaurantComments[0].deliveryTime}/>
             </div>
         }
-        
-        // this.state.RestaurantComments.map((c,i)=>{
-        //     comments.push( <CommentCard />);
-        // })
         return (    
             // Restaurant Large Card
             <React.Fragment>
             <Header/>
+
             <div className="card_large_background_container">
+                <img src = '/mocks/restaurant_page.jpg'/>
             <RestaurantCardLarge name={this.state.RestaurantData[0].name} 
             rate={this.state.RestaurantData[0].averageRate} 
             address={address} 

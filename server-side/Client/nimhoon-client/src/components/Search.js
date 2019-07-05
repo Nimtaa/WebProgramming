@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import Select from 'react-select'
 import Restaurants from '../Restaurants';
 import App from '../App';
 import '../assets/global.css';
 import '../assets/main.css';
+import {FaAngleDown} from 'react-icons/fa';
+import Select from "react-dropdown-select";
 
 
 const options = [
@@ -17,19 +18,37 @@ const legend_style = {
     color : '#9c9c9c',
     textAlign : 'right'
 }
+const fa_icon_style = {
+    fontSize :'2rem',
+    marginTop : '6%'
+
+}
 const icon_style = {
     marginTop : '0.5%'
+}
+const select_style = {
+    fontFamily : 'Shabnam',
+    border : 'none',
+    outline : 'none',
+    // left:'32%',
+    // top: '11%',
+    right : '10%',
+    height : '22%'
 }
 class Search extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: "مثلا نیاوران"
+            title: "مثلا نیاوران",
+            placeholder : "تهران"
         };
         this.handleChange = this.handleChange.bind(this);
         this.clickHandler = this.clickHandler.bind(this);
+        this.dropdownHandler = this.dropdownHandler.bind(this);
     }
-    
+    dropdownHandler (){
+        this.setState({placeholder : "شهر"})
+    }
     changeTest(){
         this.setState({
             query : false
@@ -59,16 +78,17 @@ class Search extends React.Component {
                             <p>.برای دیدن لیست رستوران‌ها و فست‌فود‌هایی که به شما سرویس می‌دهند، منطقه خود را وارد کنید</p>
                             <div className="main_search_box">
                         
-                                <span className="city_select">
-                            
-                                    {/* <select class="city_select_element">
-                                        <option value="تهران">تهران</option>
-                                        <option value="ساری">ساری</option>
-                                        <option value="مشهد">مشهد</option>
-                                        <option value="کرج">کرج</option>
-                                    </select> */}
-                                </span>
-                                    
+                                <div className="city_select">
+                                    {/* <FaAngleDown style= {fa_icon_style}/> */}
+                                    <div className="select_city_div">
+                                    <Select className = "select_react_dropdown" 
+                                    style ={select_style} options={options}
+                                    placeholder={this.state.placeholder} 
+                                    onDropdownOpen = {this.dropdownHandler}
+                                    />
+                                    </div>
+                                </div>
+                                
                                 <fieldset className="neighbor_input">
                                     <legend style={legend_style}>منطقه خود را وارد کنید</legend>
                                     <span>
@@ -87,7 +107,6 @@ class Search extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <Select options={options}  placeholder="شهر" styles={customStyles} />
             </React.Fragment>
        );
    }

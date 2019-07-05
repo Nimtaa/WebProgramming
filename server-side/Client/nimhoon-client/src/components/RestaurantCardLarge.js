@@ -30,7 +30,7 @@ class  RestaurantCardLarge extends Component {
         return (
             <React.Fragment>
             <div className="RestaurantCardLarge_div">
-                <img className="RestaurantCardLarge_logo"/>
+                <img className="RestaurantCardLarge_logo"    src = {'/mocks/Restaurants/' + this.props.name + '.jpeg'}/>
                 <div id="RestaurantCardLarge_name">
             <h2 >{this.props.name}</h2>
             </div>
