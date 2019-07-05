@@ -15,12 +15,12 @@ exports.list = function(req,res,next){
             const dbo = db.db('nimhoon');
             Address.find(query,{_id:1}, function(err, docs) {
                 var addressOfRestaurant_id = docs.map(function(doc) { return doc._id; });
-                Category.find({'id': {'$in':req.query.category}},{_id:1}, function(err,docs){
+                Food.find({'foodSet': {'$in':req.query.category}},{_id:1}, function(err,docs){
                     if(err) throw err;
-                    var category_id = docs.map(function(doc){return doc._id});
-                    console.log("category_id: ",category_id);
-                    Restaurant.find({ '$and':[{'address': addressOfRestaurant_id}, {'categories' : {'$in': category_id}}]})
-                    .populate('categories').exec(
+                    var food_id = docs.map(function(doc){return doc._id});
+                    console.log("food_id: ",food_id);
+                    Restaurant.find({ '$and':[{'address': addressOfRestaurant_id}, {'foods' : {'$in': food_id}}]})
+                    .populate('foods').exec(
                     function(err, docs) {
                         if(err) throw err;
                         res.setHeader("Access-Control-Allow-Origin", '*');
@@ -72,6 +72,7 @@ exports.listWithId = function (req,res,next){
         Restaurant.find(query)
         .populate('foods',['name','price','description','foodSet'])
         .populate('address',['area','city','addressLine'])
+        .populate('categories')
         .exec(function(err, result) {
             if (err) throw err;  
             res.setHeader("Access-Control-Allow-Origin", '*');
@@ -169,6 +170,7 @@ exports.getComments = function(req,res,next) {
             Comment.find({'_id':comment_id}).sort('-created_at').exec(function(err, docs) {
                 if(err) throw err;
                 console.log(docs);
+                res.setHeader("Access-Control-Allow-Origin", '*');
                 res.json(docs);
                 db.close();
             });
