@@ -5,9 +5,14 @@ import '../assets/mainList.css';
 import RestaurantCard from './RestaurantCard';
 import SearchBox from './SearchBox';
 import FoodFilter from './FoodFilter';
+import SearchField from 'react-search-field';
 const axios = require('axios');
 var ClosedRestaurants = [];
 var FoodFilterArray = [];
+const counter_style = {
+        
+};
+
 
 class  RestaurantList extends Component {
     
@@ -132,53 +137,46 @@ class  RestaurantList extends Component {
     }
     render() {
         console.log("this is render")
-        // if(this.state.RestaurantComponents.length==0)
-        //     return null;
-            // this.state.ListOfRestaurants.map((item, i) => {
-            //     if(this.isOpen(item.openingTime,item.closingTime)){
-            //     RestaurantComponents.push(<RestaurantCard name ={item.name} address={item.address.addressLine}
-            //             rate = {item.rate} food = {item.food} close={false}/>);
-            //             this.setState({ numberOfResults: this.state.numberOfResults+1})
-            //         }
-            //     else
-            //     RestaurantComponents.push(<RestaurantCard name ={item.name} address={item.address.addressLine}
-            //         rate = {item.rate} food = {item.food} close={true}/>);
-            //     });
-            console.log(this.state.ClosedRestaurantsComponents);
-            console.log("Components", this.state.RestaurantComponents);
-            console.log("Rest",this.state.ListOfRestaurants);
-            let closedTitle ;
-            if(this.state.ClosedRestaurantsComponents.length){
-                closedTitle = <p className="ClosedTitle">رستوران‌های بسته</p>
-            }else{
-                closedTitle = null;
-            }
-         return (
-            <React.Fragment>
-                <div className="restaurant_search_banner"/>
-                <div className="SearchBoxContainer">
-                    <div className = "Counter">رستوران فعال {this.state.numberOfResults} </div>  
-                    <div className="SearchBox_div">
-                    <SearchBox/>
+        console.log(this.state.ClosedRestaurantsComponents);
+        console.log("Components", this.state.RestaurantComponents);
+        console.log("Rest",this.state.ListOfRestaurants);
+        let closedTitle ;
+        if(this.state.ClosedRestaurantsComponents.length){
+            closedTitle = <p className="ClosedTitle">رستوران‌های بسته</p>
+        }else{
+            closedTitle = null;
+        }
+        return (
+        <React.Fragment>
+            <div className="restaurant_search_banner"/>
+            <div className="SearchBoxContainer">
+                <h3 style={counter_style} className = "Counter">
+                <span>{this.state.numberOfResults}</span>
+                   <span> رستوران امکان سرویس دهی به</span>
+                    <span>{this.props.query}</span>
+                <span>را دارند</span>
+                 </h3>
+                <div className="SearchBox_div">
+                <SearchBox/>
+                </div>
+            </div> 
+            {/* <div className="BodyContainer"> */}
+                <div className="SideBar">
+                    {/* food filter comes here */}
+                    <span>
+                    {this.state.FoodFilter}
+                    </span>
+                </div>
+            <div className="AllRestaurants">
+                <div className= "OpenRestaurants">
+                        {this.state.RestaurantComponents}
+                </div>
+                {closedTitle}
+                <div className="ClosedRestaurants">
+                        {this.state.ClosedRestaurantsComponents}
                     </div>
-                </div> 
-                {/* <div className="BodyContainer"> */}
-                    <div className="SideBar">
-                        {/* food filter comes here */}
-                        <span>
-                        {this.state.FoodFilter}
-                        </span>
-                    </div>
-                <div className="AllRestaurants">
-                    <div className= "OpenRestaurants">
-                            {this.state.RestaurantComponents}
-                    </div>
-                    {closedTitle}
-                    <div className="ClosedRestaurants">
-                            {this.state.ClosedRestaurantsComponents}
-                        </div>
-                    </div>
-                
+                </div>
+            
             </React.Fragment> 
            );
     }

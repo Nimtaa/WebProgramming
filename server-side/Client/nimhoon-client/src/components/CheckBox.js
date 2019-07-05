@@ -29,38 +29,46 @@ class  CheckBox extends Component {
       render() {
         // const { disabled } = this.props;
         const { isChecked } = this.state;
-        return (
-          //   <div className="ReactCheckBox_div">
-          // <label>
-          // {this.props.name}
-          //   <input type="checkbox" className="ReactCheckBox"
-          //     checked={isChecked}
-          //     onChange={this.toggleChange}
-          //     onClick={this.props.parentFunction(this.state.isChecked,this.props.value)}
-          //   />
-           
-          //  </label>
-          //  </div>
-          <div>
+        if(this.props.propcheck){
+          return (
+              <div>
               <label className="checkbox-container">
-             
                   <input type="checkbox" 
-                  checked = {isChecked} 
-                  onChange={this.toggleChange}
+                  checked ={this.props.propcheck}
+                  // onChange={this.toggleChange}
                   onClick = {this.props.parentFunction}
                   name = {this.props.name}
-                  
-                 />
+                />
                   {this.props.name}
                   {/*TODO: props for input 
                   defaultChecked={this.state.categories_check[key]}
                   key={key} 
                   */}
-                  <span className="checkmark">
+                  <span className="checked_checkmark">
                   </span>
               </label>
           </div>
-        );
+          );
+        }else{
+          return (
+            <div>
+            <label className="checkbox-container">
+                <input type="checkbox" 
+                // onChange={this.toggleChange}
+                onClick = {this.props.parentFunction}
+                name = {this.props.name}
+               />
+                {this.props.name}
+                {/*TODO: props for input 
+                defaultChecked={this.state.categories_check[key]}
+                key={key} 
+                */}
+                <span className="checkmark">
+                </span>
+            </label>
+        </div>
+          );
+        }
       }
 }
 

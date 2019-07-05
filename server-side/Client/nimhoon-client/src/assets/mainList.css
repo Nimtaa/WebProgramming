@@ -125,12 +125,34 @@
     height: 0.9em;
     border: 1px solid #bdbdbd;
 }
-.checkbox-container input:checked ~ .checkmark {
+
+/* .checkbox-container input:checked ~ .checkmark {
     background-color: rgb(199,0,80);
     border: 1px solid rgb(199,0,80);
+} */
+.checked_checkmark{
+    background-color: rgb(199,0,80);
+    border: 1px solid rgb(199,0,80);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 4px;
+    width: 0.9em;
+    height: 0.9em;
+    
 }
-.checkbox-container input:checked ~ .checkmark:after {
+.checked_checkmark:after {
     display: block;
+    content: "";
+    position: absolute;
+    display: none;
+    left: 0.3em;
+    top: 0.1em;
+    width: 0.2em;
+    height: 0.5em;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
 }
 .checkmark:after {
     content: "";
@@ -195,8 +217,6 @@
     /* margin: 128px 16px 32px 0;
     margin: 8rem 1rem 2rem 0; */
 }
-
-
 .ClosedRestaurants{
     margin-top: 70px;
     margin-right: 80px;
@@ -212,18 +232,44 @@
     flex-direction: row-reverse;
 
 }
-@media screen and (max-width: 70em) and (min-width : 40em) {
-    /* .ClosedRestaurants {
-      grid-template-columns: repeat(2, 320px);
-      grid-gap: 10px;
-    } */
-  }
-@media screen and (max-width: 40em) {
-    /* .ClosedRestaurants {
+@media screen and (max-width: 60rem) {
+    .ClosedRestaurants {
+        flex-direction: column;
+    }
+}
+@media screen and (max-width: 60rem) {
+    .ClosedRestaurants > div{
+        /* width : 50%; */
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 10%;
+        height: 185px;
+    }
+}
+@media screen and (max-width: 40rem) {
+    .OpenRestaurants {
+        flex-direction: column;
+    }
+}   
+@media screen and (max-width : 40rem){
+    .OpenRestaurants > div{
+        width : 50%;
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 10%;
+        height: 185px;
+    }
+}    
+    
+
+
+
+/* @media screen and (max-width: 30em) {
+    .ClosedRestaurants {
       grid-template-columns: repeat(1, 320px);
       grid-gap: 10px;
-    } */
-  }
+    } 
+  } */
 .ClosedRestaurants  > div{
     /* width :auto;
     height: 185px; */
@@ -252,34 +298,7 @@
     
     /* direction: rtl; */
 }
-@media screen and (max-width: 70em) and (min-width : 40em){
-    .OpenRestaurants{
-      flex-wrap: wrap;
-    }
-    .OpenRestaurants:first-child{
-        flex-basis: 50%;
-    }
-    .ClosedRestaurants{
-        flex-wrap: wrap;
-      }
-    .ClosedRestaurants:first-child{
-        flex-basis: 50%;
-    }
-}
-@media screen and (max-width: 40em) {
-    .OpenRestaurants{
-        flex-wrap: wrap;
-    }
-    .OpenRestaurants:first-child{
-        flex-basis: 100%;
-    }
-    .ClosedRestaurants{
-        flex-wrap: wrap;
-    }
-    .ClosedRestaurants:first-child{
-        flex-basis: 100%;
-    }
-}
+
 .OpenRestaurants > div{
     width :auto;
     height :185px;
@@ -287,7 +306,8 @@
     flex-grow: 0;
     flex-shrink: 0;
     flex-basis: 27%;
-}
+} 
+
 .BodyContainer{
     /* display: flex; */
     direction: rtl;
