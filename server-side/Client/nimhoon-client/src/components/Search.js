@@ -12,6 +12,14 @@ const options = [
     { value: 'vanilla', label: 'مشهد' }
   ]
 
+const legend_style = {
+    fontSize : '0.5rem',
+    color : '#9c9c9c',
+    textAlign : 'right'
+}
+const icon_style = {
+    marginTop : '0.5%'
+}
 class Search extends React.Component {
     constructor(props) {
         super(props);
@@ -22,16 +30,14 @@ class Search extends React.Component {
         this.clickHandler = this.clickHandler.bind(this);
     }
     
-
     changeTest(){
         this.setState({
             query : false
         });
     }
     handleChange(event){
-        console.log(event.value);
         this.setState({
-            title : event.value
+            title : event.target.value
         });
     }
     clickHandler(event){
@@ -43,17 +49,17 @@ class Search extends React.Component {
         console.log("Title :" ,this.state.title);
        return (
             <React.Fragment>
-                <div class="main_banner">
-                            <div class="banner_logo">
+                <div className="main_banner">
+                            <div className="banner_logo">
                                     <img  src="../mocks/logo.png"/>
                                 </div>
-                        <div class="banner_text">
+                        <div className="banner_text">
                             <h>سفارش آنلاین غذا
                             از بهترین رستوران‌ها و فست‌فود‌‌ها</h>            
                             <p>.برای دیدن لیست رستوران‌ها و فست‌فود‌هایی که به شما سرویس می‌دهند، منطقه خود را وارد کنید</p>
-                            <div class="main_search_box">
+                            <div className="main_search_box">
                         
-                                <span class="city_select">
+                                <span className="city_select">
                             
                                     {/* <select class="city_select_element">
                                         <option value="تهران">تهران</option>
@@ -62,10 +68,11 @@ class Search extends React.Component {
                                         <option value="کرج">کرج</option>
                                     </select> */}
                                 </span>
-                                
-                                <span class="neighbor_input">
+                                    
+                                <fieldset className="neighbor_input">
+                                    <legend style={legend_style}>منطقه خود را وارد کنید</legend>
                                     <span>
-                                        <img  id="pin_icon" src="../mocks/pin.png"/>
+                                        <img style={icon_style} id="pin_icon" src="../mocks/pin.png"/>
                                     </span>
                                     {/* <input class="neighbor_input_element" type="text" name="neighbour_input" value="مثلا نیاوران"/> */}
                                     <input className="main_list_neighbor_input_element" 
@@ -74,7 +81,7 @@ class Search extends React.Component {
                                     onChange={this.handleChange}
                                     onClick={this.clickHandler}
                                     />
-                                </span>
+                                </fieldset>
                                 {/* <img src="/mocks/Search_icon.jpg"/> */}
                                 <button className = "SearchButton" id ={this.state.title} onClick ={this.props.fatherHandler} ></button>
                             </div>

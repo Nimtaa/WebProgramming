@@ -33,16 +33,28 @@ class App extends React.Component {
   }
   RestaurantListHandler(event){
     if(event.target.id!=undefined)
-    console.log("my id: ",event.target.id);
+    this.setState({area: event.target.id});
   }
   render(){
    
     // if(this.state.query){
       console.log(this.state.renderRestaurantPage);
       console.log("ID: ", this.state.restaurantClickedId);
+      console.log("Area: ", this.state.area);
       if(this.state.renderRestaurantPage==true && this.state.restaurantClickedId!=null){
         return ( <RestaurantPage id={this.state.restaurantClickedId}/>);
-      }else{
+      }
+      else if(this.state.area !=''){
+        return (
+          <React.Fragment>
+        <Header/>
+        <RestaurantList query={this.state.area} fatherHandler = {this.RestaurantPageHandler}/>
+        <Footer/>
+        </React.Fragment>
+        );        
+        
+      }
+      else{
         return ( 
 
           // <React.Fragment>
@@ -52,14 +64,14 @@ class App extends React.Component {
           //     <Footer/>
           // </div>
           // </React.Fragment>
-          // <React.Fragment>
-          //   <Header/>
-          //   <Search fatherHandler = {this.RestaurantListHandler}/>
-          //   <Footer/>
-          // </React.Fragment>
-          
+          <React.Fragment>
+            <Header/>
+            <Search fatherHandler = {this.RestaurantListHandler}/>
+            <Footer/>
+          </React.Fragment>
+                    
         
-          <RestaurantList fatherHandler = {this.RestaurantPageHandler}/>
+          //
       
           );    
       }

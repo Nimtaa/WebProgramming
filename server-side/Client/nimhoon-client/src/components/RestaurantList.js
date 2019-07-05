@@ -49,7 +49,7 @@ class  RestaurantList extends Component {
     }
     categoryQueryHandler(){
         console.log("This is running.!")
-        axios.get('http://127.0.0.1:9000/restaurants?area=سعادت'+this.state.categoryQuery)
+        axios.get('http://127.0.0.1:9000/restaurants?area='+this.props.query+this.state.categoryQuery)
         .then((response) =>
                 this.setState({ListOfRestaurants: response.data},function(data){
                     this.RestaurantHandler();
@@ -105,7 +105,7 @@ class  RestaurantList extends Component {
     }
     
     componentDidMount(){ 
-        axios.get('http://127.0.0.1:9000/restaurants?area=سعادت')
+        axios.get('http://127.0.0.1:9000/restaurants?area='+this.props.query)
         .then((response) =>
             this.setState({ListOfRestaurants: response.data})
         ).then(()=>{
