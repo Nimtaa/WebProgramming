@@ -12,6 +12,7 @@ import RestaurantCardLarge from './components/RestaurantCardLarge';
 import FoodCard from './components/FoodCard';
 import RestaurantPage from './components/RestaurantPage';
 import Stars from './components/Stars';
+import CheckBox from './components/CheckBox';
 
 
 class App extends React.Component { 
@@ -37,7 +38,6 @@ class App extends React.Component {
   }
   render(){
    
-    // if(this.state.query){
       console.log(this.state.renderRestaurantPage);
       console.log("ID: ", this.state.restaurantClickedId);
       console.log("Area: ", this.state.area);
@@ -54,28 +54,21 @@ class App extends React.Component {
         );        
         
       }
+        
+      
       else{
         return ( 
-
-          // <React.Fragment>
-          // <div className="ListApp">  
-          //     <Header/>
-          //     <RestaurantList/>
-          //     <Footer/>
-          // </div>
-          // </React.Fragment>
           <React.Fragment>
             <Header/>
             <Search fatherHandler = {this.RestaurantListHandler}/>
             <Footer/>
           </React.Fragment>
-                    
-        
-          //
-      
           );    
       }
-    
+      // return (
+      // <RestaurantPage id = {'5d1b64b6e816db12f85c59c0'}/>
+      // <CheckBox/>
+      // );
   }
 }
 

@@ -34,18 +34,15 @@ class  RestaurantList extends Component {
     foodFilterParent(selectedFilters){
         console.log("Selected Filters: ",selectedFilters);
         //here I have  selected filters
+        var copyQuery = "";
         selectedFilters.map((item,i)=>{
-            var copyQuery = this.state.categoryQuery;
-            if(!copyQuery.includes(item)){
-                console.log("into the if")
-                copyQuery = copyQuery + '&category='+item;
-                console.log("Copy Query1: ",copyQuery);
-            }
+            copyQuery = copyQuery + '&category='+item;
             console.log("Copy Query2: ",copyQuery);
-            this.setState({categoryQuery : copyQuery},function(data){
-                this.categoryQueryHandler();
-            }); 
         });
+        this.setState({categoryQuery : copyQuery},function(data){
+            console.log("category quert set")
+            this.categoryQueryHandler();
+            });
     }
     categoryQueryHandler(){
         console.log("This is running.!")
@@ -78,24 +75,37 @@ class  RestaurantList extends Component {
         this.props.fatherHandler(event);
     }
     RestaurantHandler(){
+        console.log("Category Set", this.state.categorySet);
         console.log("this is res handle");
+        var res_array = []
+        var clos_array = []
+        var counter = 0
         this.state.ListOfRestaurants.map((item, i) => {
             console.log("Hey categories : ", item.categories);
             if(this.isOpen(item.openingTime,item.closingTime)){
-                   // this.setState({ numberOfResults: this.state.numberOfResults+1})
-            this.setState({
-                RestaurantComponents : [this.state.RestaurantComponents,<RestaurantCard name ={item.name} address={item.address.addressLine}
+                res_array.push(<RestaurantCard name ={item.name} address={item.address.addressLine}
                     rate = {item.averageRate} food = {item.categories} close={false} id={item._id}
-                    clickHandler ={this.clickHandler}/>],
-                    numberOfResults : this.state.numberOfResults + 1
-            })
-                }
+                    clickHandler ={this.clickHandler}/>);
+                counter ++;
+            this.setState(
+                {RestaurantComponents : res_array}
+            ,()=>{
+                this.setState({numberOfResults : counter},()=>{
+                    console.log(this.state.numberOfResults);
+                })
+            })}
+ 
+                
             else
+           { 
+            clos_array.push(<RestaurantCard name ={item.name} address={item.address.addressLine}
+                rate = {item.averageRate} food = {item.categories} close={true} id={item._id}
+                clickHandler ={this.clickHandler}/>);
             this.setState({
-                ClosedRestaurantsComponents : [this.state.ClosedRestaurantsComponents,<RestaurantCard name ={item.name} address={item.address.addressLine}
-                    rate = {item.averageRate} food = {item.categories} close={true} id={item._id}
-                    clickHandler ={this.clickHandler}/>]
-            })
+                ClosedRestaurantsComponents : clos_array
+            },()=>{
+                console.log("added to the closed comp",this.state.ClosedRestaurantsComponents);
+            })}
             });
     }
     FoodFilterHandler(){
@@ -105,19 +115,16 @@ class  RestaurantList extends Component {
     }
     
     componentDidMount(){ 
-        axios.get('http://127.0.0.1:9000/restaurants?area='+this.props.query)
-        .then((response) =>
-            this.setState({ListOfRestaurants: response.data})
-        ).then(()=>{
-            this.RestaurantHandler();
-        })
-        .catch(function (error) {
-            // handle error
-            console.log(error);
-        })
-        .finally(function () {
-            // always executed
-        });
+        axios.all([
+            axios.get('http://127.0.0.1:9000/restaurants?area='+this.props.query),
+            axios.get('http://127.0.0.1:9000/foods')
+        ]).then(([res, food]) => {
+            this.setState({ ListOfRestaurants: res.data , categorySet : food.data},()=>{
+                this.RestaurantHandler();
+                this.FoodFilterHandler();
+            });
+          })
+          .catch(error => console.log(error));
     }
     
     componentWillUpdate(){
@@ -138,6 +145,7 @@ class  RestaurantList extends Component {
             //         rate = {item.rate} food = {item.food} close={true}/>);
             //     });
             console.log(this.state.ClosedRestaurantsComponents);
+            console.log("Components", this.state.RestaurantComponents);
             console.log("Rest",this.state.ListOfRestaurants);
             let closedTitle ;
             if(this.state.ClosedRestaurantsComponents.length){
@@ -155,12 +163,12 @@ class  RestaurantList extends Component {
                     </div>
                 </div> 
                 {/* <div className="BodyContainer"> */}
-                    <fieldset className="SideBar">
+                    <div className="SideBar">
                         {/* food filter comes here */}
                         <span>
                         {this.state.FoodFilter}
                         </span>
-                    </fieldset>
+                    </div>
                 <div className="AllRestaurants">
                     <div className= "OpenRestaurants">
                             {this.state.RestaurantComponents}

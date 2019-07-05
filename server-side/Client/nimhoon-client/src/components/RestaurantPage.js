@@ -15,6 +15,9 @@ import Header from './Header';
 
 const axios = require('axios');
 
+const banner_img_div_style = {
+
+}
 
 class  RestaurantPage extends Component {
     constructor(props) {
@@ -81,7 +84,10 @@ class  RestaurantPage extends Component {
             <Header/>
 
             <div className="card_large_background_container">
-                <img src = '/mocks/restaurant_page.jpg'/>
+                {/* <img src = '/mocks/restaurant_page.jpg'/> */}
+                <div className="banner_img_div_style">
+                <img src="https://github.com/Nimtaa/WebProgramming/blob/master/server-side/Client/nimhoon-client/public/mocks/restaurant_page.jpeg?raw=true"></img>
+                </div>
             <RestaurantCardLarge name={this.state.RestaurantData[0].name} 
             rate={this.state.RestaurantData[0].averageRate} 
             address={address} 

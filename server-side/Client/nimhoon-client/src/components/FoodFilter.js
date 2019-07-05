@@ -10,23 +10,28 @@ var checkboxes = []
 var position = {};
 class  FoodFilter extends Component {
     
-    parentFunction = (isChecked,name) => {
-        console.log(isChecked,name);
+    parentFunction = (event) => {
         
-        if(isChecked){
+        console.log("name of chbox changed!",event.target.name);
+        if(event.target.checked){
             console.log("Iam going to change the state")
             var copy = this.state.checked;
-            copy.push(name);
-            this.setState({checked : copy});
-            this.props.RestaurantListFunction(this.state.checked);
+            copy.push(event.target.name);
+            this.setState({checked : copy},()=>{
+                this.props.RestaurantListFunction(this.state.checked);
+            });
+            
         }
         else{
-            var index = this.state.checked.indexOf(name);
+            var index = this.state.checked.indexOf(event.target.name);
             if(index > -1){
                 var copy = this.state.checked;
                 copy.splice(index,1);
-                this.setState({checked:copy});
-                this.props.RestaurantListFunction(this.state.checked);
+                this.setState({checked:copy},()=>{
+                    this.props.RestaurantListFunction(this.state.checked);
+                    console.log("removed from checked !", this.state.checked);
+                });
+                
             }
         }
     }
@@ -38,11 +43,12 @@ class  FoodFilter extends Component {
         this.state = {
             checked : []
         };
+        this.parentFunction = this.parentFunction.bind(this);
     }
     checkBoxInit(){
         //initialize the checkboxes
         this.props.FoodSetName.map((item, i) => {                   
-            checkboxes.push (<CheckBox name={item.name} value={item.id} parentFunction={this.parentFunction} />) ;
+            checkboxes.push (<CheckBox name={item} value={item.id} parentFunction={this.parentFunction} />) ;
     })
     }
    
